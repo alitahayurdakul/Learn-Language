@@ -1,0 +1,17 @@
+{
+    "getStarted": "Hadi Başlayalım",
+    "start": "Başla",
+    "myScores": "Skorlarım",
+    "aboutUs": "Hakkımızda",
+    "enToTr": "İngilizce - Türkçe",
+    "trToEn": "Türkçe - İngilizce",
+    "homepage": "Anasayfa",
+    "reloadGame": "Yeniden Oyna",
+    "score": "Skorunuz",
+    "health": "Can",
+    "gameOver": "Oyun Bitti",
+    "selectList": {
+        "en": "İngilizce",
+        "tr": "Türkçe"
+    }
+}

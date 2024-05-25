@@ -1,0 +1,17 @@
+{
+    "getStarted": "Get Started",
+    "start": "Start",
+    "myScores": "My Scores",
+    "aboutUs": "About Us",
+    "enToTr": "English - Turkish",
+    "trToEn": "Turkish - English",
+    "homepage": "Homepage",
+    "reloadGame": "Play Again",
+    "score": "Your Score",
+    "health": "Health",
+    "gameOver": "Game Over",
+    "selectList": {
+        "en": "English",
+        "tr": "Turkish"
+    }
+}
