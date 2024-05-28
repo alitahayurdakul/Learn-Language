@@ -10,21 +10,22 @@ const Item = ({ data }: { data: IHomePageMenuDataTypes }) => {
     return <TouchableOpacity onPress={() => navigation.navigate(data.routePageName, {
         type: data.key
     })} style={styles.itemContainer}>
-        <Text >{t(data.key)}</Text>
+        <Text style={styles.itemText} >{t(data.key)}</Text>
     </TouchableOpacity>
 }
 
 const windowWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
     itemContainer: {
-        backgroundColor: 'white',
+        backgroundColor: '#0045FD',
         marginVertical: 10,
         padding: 20,
         borderRadius: (windowWidth * 0.2) / 2,
     },
     itemText: {
         fontSize: 20,
-        color: 'red'
+        color: '#FAFEF2',
+        fontWeight: '600'
     }
 });
 

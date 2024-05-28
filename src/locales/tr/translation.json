@@ -10,8 +10,10 @@
     "score": "Skorunuz",
     "health": "Can",
     "gameOver": "Oyun Bitti",
-    "selectList": {
-        "en": "İngilizce",
-        "tr": "Türkçe"
+    "language": {
+        "title": "Dil",
+        "description": "Dilinizi seçip uygulamanızı istediğiniz dilde özelleştirebilirsiniz.",
+        "tr": "Türkçe",
+        "en": "İngilizce"
     }
 }

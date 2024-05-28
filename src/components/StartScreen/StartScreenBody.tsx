@@ -1,6 +1,8 @@
+import { FlatList, StyleSheet, View } from "react-native"
+
 import Item from "components/common/MenuItem";
 import { StartMenuDatas } from "const/StartMenu";
-import { FlatList, StyleSheet, View } from "react-native"
+
 import { IHomePageMenuDataTypes } from "types/HomepageTypes";
 
 const StartScreenBody = () => {

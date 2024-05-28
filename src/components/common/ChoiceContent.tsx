@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
-import { IGameOptionType } from "types/HomepageTypes";
 import { AntDesign } from '@expo/vector-icons';
+
+import { IGameOptionType } from "types/HomepageTypes";
+
 const ChoiceContent = ({ data, clickFn, wrongAnswer }: { data: IGameOptionType, clickFn: any, wrongAnswer: string }) => {
     const { t } = useTranslation();
 

@@ -1,6 +1,5 @@
 import { IGameQuestionTypes } from "types/HomepageTypes";
 
-
 export const GameQuestionsMenu: IGameQuestionTypes = {
     enToTr: [
         {
