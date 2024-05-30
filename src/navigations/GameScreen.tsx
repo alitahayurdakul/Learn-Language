@@ -87,10 +87,10 @@ const GameScreen = ({ route }: { route: any }) => {
         return (
             <View style={styles.container} >
                 <View style={styles.headerContainer} >
-                    <Text style={styles.scoreStyle}>
+                    <Text style={styles.headerInfo}>
                         {t("score")}: {score}
                     </Text>
-                    <Text style={styles.scoreStyle} >
+                    <Text style={styles.headerInfo} >
                         {t("health")}: {health}
                     </Text>
                 </View>
@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between' 
     },
-    scoreStyle: {
-        color: 'white',
+    headerInfo: {
+        color: '#0045FD',
         // width: '100%',
         // textAlign: 'right',
         fontSize: 25
@@ -133,12 +133,12 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderColor: 'white',
         borderWidth: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#0045FD',
         padding: 20,
         marginBottom: 50
     },
     textStyle: {
-        // color: "white"
+        color: "white"
     }
 });
 
