@@ -2,11 +2,11 @@ import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import WelcomePage from 'screens/WelcomePage';
-import HomepageScreen from 'screens/HomepageScreen';
-import StartScreen from 'screens/StartScreen';
-import GameScreen from 'screens/GameScreen';
-import GameOverScreen from 'screens/GameOverScreen';
+import WelcomePage from 'navigations/WelcomePage';
+import HomepageScreen from 'navigations/HomepageScreen';
+import StartScreen from 'navigations/StartScreen';
+import GameScreen from 'navigations/GameScreen';
+import GameOverScreen from 'navigations/GameOverScreen';
 
 import '@/locales/i18n.config';
 
