@@ -22,3 +22,9 @@ export interface IGameType {
 export interface ILanguageSelectType {
     key: string
 }
+
+export interface IScoreDataTypes {
+    date: string,
+    score: string,
+    gameType: string
+}

@@ -16,7 +16,7 @@ const GameOverMenu: IHomePageMenuDataTypes[] = [
     }
 ]
 
-const GameOverScreen = () => {
+const GameOverScreen = ({route}: {route: any}) => {
     const { t } = useTranslation("translation")
     return (
         <View style={styles.container} >
@@ -24,6 +24,9 @@ const GameOverScreen = () => {
                 <MaterialIcons name="error-outline" size={100} color="red" />
                 <Text style={styles.textStyle} >
                     {t("gameOver")}
+                </Text>
+                <Text style={styles.scoreStyle} >
+                 {`${t("score")}: ${route.params.score}`}
                 </Text>
             </View>
             <View >
@@ -39,18 +42,21 @@ const styles = StyleSheet.create({
         gap: 30,
         width: '80%',
         marginHorizontal: '10%',
-        // height: '100%',
-        // alignItems: "center",
         justifyContent: "center"
     },
     notificationContainer: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        gap:10
     },
     textStyle: {
         color: 'red',
         fontSize: 30
+    },
+    scoreStyle: {
+        color: 'black',
+        fontSize: 20
     }
 });
 

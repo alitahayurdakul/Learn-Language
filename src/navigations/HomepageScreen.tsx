@@ -1,8 +1,8 @@
 import { ScrollView, StyleSheet, View } from "react-native";
 
-import Footer from "components/Footer/Footer";
 import Header from "components/Header/Header";
 import HomeBody from "components/Homepage/HomeBody";
+import { Footer } from "components/common/Footer";
 
 const HomepageScreen = () => {
   return (
@@ -12,8 +12,8 @@ const HomepageScreen = () => {
           <Header headerName="English Game" />
           <HomeBody />
         </View>
-        <Footer />
       </ScrollView>
+      <Footer />
     </View>
   );
 };
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    paddingVertical: 30,
+    paddingTop: 30,
   },
 });
 

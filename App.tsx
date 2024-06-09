@@ -1,5 +1,4 @@
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import { StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import WelcomePage from 'navigations/WelcomePage';
@@ -7,9 +6,9 @@ import HomepageScreen from 'navigations/HomepageScreen';
 import StartScreen from 'navigations/StartScreen';
 import GameScreen from 'navigations/GameScreen';
 import GameOverScreen from 'navigations/GameOverScreen';
+import ScoresScreen from 'navigations/ScoresScreen';
 
 import '@/locales/i18n.config';
-
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +34,7 @@ export default function App() {
         <Stack.Screen component={StartScreen} name="StartScreen" />
         <Stack.Screen component={GameScreen} name="GameScreen" />
         <Stack.Screen component={GameOverScreen} name="GameOverScreen" />
+        <Stack.Screen component={ScoresScreen} name="ScoresScreen" />
       </Stack.Navigator>
     </NavigationContainer>
   );
