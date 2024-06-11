@@ -1,40 +1,47 @@
-import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import WelcomePage from 'navigations/WelcomePage';
-import HomepageScreen from 'navigations/HomepageScreen';
-import StartScreen from 'navigations/StartScreen';
-import GameScreen from 'navigations/GameScreen';
-import GameOverScreen from 'navigations/GameOverScreen';
-import ScoresScreen from 'navigations/ScoresScreen';
+import {
+  GameOverScreen,
+  GameScreen,
+  ScoresScreen,
+  StartScreen,
+  SuccessScreen,
+  WelcomePage,
+} from "navigations/index";
 
-import '@/locales/i18n.config';
+import "@/locales/i18n.config";
+import HomepageScreen from "navigations/HomepageScreen";
 
 const Stack = createNativeStackNavigator();
 
 const navTheme = DefaultTheme;
-navTheme.colors.background = '#FAFEF2'
+navTheme.colors.background = "#FAFEF2";
 
 export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
-       {/* <StatusBar
+      {/* <StatusBar
         animated={true}
         // backgroundColor="#61dafb"
         // barStyle={statusBarStyle}
         // showHideTransition={statusBarTransition}
         hidden={false}
       /> */}
-      <Stack.Navigator initialRouteName='WelcomePage' screenOptions={{
-        headerBackVisible: false,
-        headerShown: false
-      }}>
+      <Stack.Navigator
+        initialRouteName="WelcomePage"
+        screenOptions={{
+          headerBackVisible: false,
+          headerShown: false,
+        }}
+      >
         <Stack.Screen component={WelcomePage} name="WelcomePage" />
         <Stack.Screen component={HomepageScreen} name="HomepageScreen" />
         <Stack.Screen component={StartScreen} name="StartScreen" />
         <Stack.Screen component={GameScreen} name="GameScreen" />
         <Stack.Screen component={GameOverScreen} name="GameOverScreen" />
         <Stack.Screen component={ScoresScreen} name="ScoresScreen" />
+        <Stack.Screen component={SuccessScreen} name="SuccessScreen" />
       </Stack.Navigator>
     </NavigationContainer>
   );

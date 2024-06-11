@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   container: {
     width: "80%",
     alignSelf: "center",
-  },
+  }
 });
 
 export default HomeBody;

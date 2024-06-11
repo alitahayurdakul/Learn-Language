@@ -18,7 +18,6 @@ const GameScreen = ({ route }: { route: any }) => {
   const navigation = useNavigation<any>();
   const [health, setHealth] = useState<number>(3);
   const [score, setScore] = useState<number>(0);
-  const [success, setSuccess] = useState<boolean>(false);
   const [question, setQuestion] = useState<IGameType>({
     questionContent: "-",
     answer: "-",
@@ -90,8 +89,8 @@ const GameScreen = ({ route }: { route: any }) => {
           (item: IGameType) => item.questionContent !== question.questionContent
         );
         if (newQuestionList.length < 1) {
-          setSuccess(true);
           onSetLocalStorage(score + 1);
+          navigation.navigate("SuccessScreen")
         } else {
           setActiveQuestionList(newQuestionList);
           setNotification(true);
@@ -112,13 +111,6 @@ const GameScreen = ({ route }: { route: any }) => {
       }
     }
   };
-  if (success) {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.textStyle}>Good Job</Text>
-      </View>
-    );
-  } else {
     return (
       <View style={styles.container}>
         <View style={styles.headerContainer}>
@@ -146,7 +138,6 @@ const GameScreen = ({ route }: { route: any }) => {
         </View>
       </View>
     );
-  }
 };
 
 const styles = StyleSheet.create({
