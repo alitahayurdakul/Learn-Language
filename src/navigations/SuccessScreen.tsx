@@ -1,9 +1,13 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
+
+import { useGoBackHandler } from "hooks/useGoBackHandler";
+import Item from "components/common/MenuItem";
+import { ScreenEnums } from "enums/screenEnums";
 
 import HappyGif from "@/assets/giphy.webp";
-import Item from "components/common/MenuItem";
 
 const SuccessScreen = () => {
+  useGoBackHandler();
   return (
     <View style={styles.successPageContainer}>
       <Image source={HappyGif} style={styles.gifContainer} />
@@ -11,7 +15,7 @@ const SuccessScreen = () => {
         <Item
           data={{
             key: "homepage",
-            routePageName: "HomepageScreen",
+            routePageName: ScreenEnums.homepage,
           }}
         />
       </View>

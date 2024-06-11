@@ -1,10 +1,14 @@
 import { ScrollView, StyleSheet, View } from "react-native";
 
+import { useGoBackHandler } from "hooks/useGoBackHandler";
+import { Footer } from "components/common/Footer";
 import Header from "components/header/Header";
 import HomeBody from "components/homepage/HomeBody";
-import { Footer } from "components/common/Footer";
 
 const HomepageScreen = () => {
+
+  useGoBackHandler();
+
   return (
     <View style={styles.container}>
       <ScrollView>

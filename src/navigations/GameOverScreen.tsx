@@ -1,39 +1,27 @@
-import Item from "components/common/MenuItem";
 import { BackHandler, FlatList, StyleSheet, Text, View } from "react-native";
-import { IHomePageMenuDataTypes } from "types/HomepageTypes";
-import { MaterialIcons } from "@expo/vector-icons";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import { MaterialIcons } from "@expo/vector-icons";
+
+import { useGoBackHandler } from "hooks/useGoBackHandler";
+import Item from "components/common/MenuItem";
+import { IHomePageMenuDataTypes } from "types/HomepageTypes";
+import { ScreenEnums } from "enums/screenEnums";
 
 const GameOverMenu: IHomePageMenuDataTypes[] = [
   {
     key: "homepage",
-    routePageName: "HomepageScreen",
+    routePageName: ScreenEnums.homepage,
   },
   {
     key: "reloadGame",
-    routePageName: "StartScreen",
+    routePageName: ScreenEnums.start,
   },
 ];
 
 const GameOverScreen = ({ route }: { route: any }) => {
   const { t } = useTranslation("translation");
 
-  //   Go back disable
-  useEffect(() => {
-    const backAction = () => {
-      //   navigation.navigate("ScoresScreen");
-      null;
-      return true;
-    };
-
-    const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      backAction
-    );
-
-    return () => backHandler.remove();
-  }, []);
+  useGoBackHandler();
 
   return (
     <View style={styles.container}>
