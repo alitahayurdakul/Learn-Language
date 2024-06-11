@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import Header from "components/Header/Header";
+import Header from "components/header/Header";
 import { ScoreDetail } from "components/scores/ScoreDetail";
 
 import { IScoreDataTypes } from "types/HomepageTypes";
@@ -95,8 +95,8 @@ const styles = StyleSheet.create({
   notFound: {
     textAlign: "center",
     fontSize: 16,
-    paddingTop: 10
-  }
+    paddingTop: 10,
+  },
 });
 
 export default ScoresScreen;

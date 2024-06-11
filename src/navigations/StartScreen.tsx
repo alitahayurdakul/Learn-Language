@@ -1,6 +1,6 @@
-import StartScreenBody from "components/StartScreen/StartScreenBody";
+import StartScreenBody from "components/startScreen/StartScreenBody";
 import { StyleSheet, View } from "react-native";
-import Header from "@/components/Header/Header";
+import Header from "components/header/Header";
 import { Footer } from "components/common/Footer";
 
 const StartScreen = () => {
