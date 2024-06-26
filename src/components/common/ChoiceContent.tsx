@@ -1,13 +1,13 @@
-import { useTranslation } from "react-i18next";
 import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-
+import { useTranslation } from "react-i18next";
 import { IGameOptionType } from "types/HomepageTypes";
+
+import { AntDesign } from "@expo/vector-icons";
 
 const ChoiceContent = ({
   data,
   clickFn,
-  wrongAnswer,
+  wrongAnswer
 }: {
   data: IGameOptionType;
   clickFn: any;
@@ -38,12 +38,12 @@ const styles = StyleSheet.create({
     display: "flex",
     gap: 10,
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "center"
   },
   itemText: {
     fontSize: 20,
-    color: "red",
-  },
+    color: "red"
+  }
 });
 
 export default ChoiceContent;

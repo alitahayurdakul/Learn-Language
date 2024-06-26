@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigation } from "@react-navigation/native";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
 import ChoiceContent from "components/common/ChoiceContent";
 import { GameQuestionsMenu } from "const/GameMenu";
+import { useTranslation } from "react-i18next";
 import {
   IGameQuestionTypes,
   IGameType,
-  IScoreDataTypes,
+  IScoreDataTypes
 } from "types/HomepageTypes";
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
 
 const GameScreen = ({ route }: { route: any }) => {
   const { type } = route.params;
@@ -24,28 +24,27 @@ const GameScreen = ({ route }: { route: any }) => {
     options: [
       {
         key: "A",
-        content: "-",
+        content: "-"
       },
       {
         key: "B",
-        content: "-",
+        content: "-"
       },
       {
         key: "C",
-        content: "-",
+        content: "-"
       },
       {
         key: "D",
-        content: "-",
-      },
-    ],
+        content: "-"
+      }
+    ]
   });
   const [questionActiveList, setActiveQuestionList] = useState<
     IGameType[] | []
   >([]);
-  const [notification, setNotification] = useState<boolean>(false);
+
   const [wrongAnswer, setWrongAnswer] = useState<string>("");
-  const [scoresDatas, setScoresDatas] = useState<IScoreDataTypes[] | []>([]);
 
   const RandomQuestion = (questionList: IGameType[]) => {
     setQuestion(questionList[Math.floor(Math.random() * questionList.length)]);
@@ -60,18 +59,15 @@ const GameScreen = ({ route }: { route: any }) => {
       const newScoreValues: IScoreDataTypes = {
         score: score.toString(),
         date: "01.07.1995 17.25",
-        gameType: type,
+        gameType: type
       };
 
-      let values = await AsyncStorage.getItem("scores");
+      const values = await AsyncStorage.getItem("scores");
 
       if (values !== null && values) {
         const jsonScoreList: IScoreDataTypes[] = JSON.parse(values);
         jsonScoreList.push(newScoreValues);
-        await AsyncStorage.setItem(
-          "scores",
-          JSON.stringify(jsonScoreList)
-        );
+        await AsyncStorage.setItem("scores", JSON.stringify(jsonScoreList));
       } else {
         const array = [];
         array.push(newScoreValues);
@@ -85,15 +81,16 @@ const GameScreen = ({ route }: { route: any }) => {
   const onClickAnswer = async (answer: string) => {
     if (question?.answer) {
       if (answer === question.answer) {
-        let newQuestionList = questionActiveList.filter(
+        const newQuestionList = questionActiveList.filter(
           (item: IGameType) => item.questionContent !== question.questionContent
         );
         if (newQuestionList.length < 1) {
           onSetLocalStorage(score + 1);
-          navigation.navigate("SuccessScreen")
+          navigation.navigate("SuccessScreen", {
+            score: score + 1
+          });
         } else {
           setActiveQuestionList(newQuestionList);
-          setNotification(true);
           RandomQuestion(newQuestionList);
           setScore(score + 1);
           setWrongAnswer("");
@@ -102,7 +99,7 @@ const GameScreen = ({ route }: { route: any }) => {
         if (health - 1 === 0) {
           onSetLocalStorage(score);
           navigation.navigate("GameOverScreen", {
-            score,
+            score
           });
         } else {
           setHealth(health - 1);
@@ -111,33 +108,34 @@ const GameScreen = ({ route }: { route: any }) => {
       }
     }
   };
-    return (
-      <View style={styles.container}>
-        <View style={styles.headerContainer}>
-          <Text style={styles.headerInfo}>
-            {t("score")}: {score}
-          </Text>
-          <Text style={styles.headerInfo}>
-            {t("health")}: {health}
-          </Text>
-        </View>
-        <View style={styles.questionContainer}>
-          <Text style={styles.textStyle}>{question.questionContent || ""}</Text>
-        </View>
-        <View>
-          <FlatList
-            data={question.options || []}
-            renderItem={({ item }) => (
-              <ChoiceContent
-                data={item}
-                clickFn={onClickAnswer}
-                wrongAnswer={wrongAnswer}
-              />
-            )}
-          />
-        </View>
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerInfo}>
+          {t("score")}: {score}
+        </Text>
+        <Text style={styles.headerInfo}>
+          {t("health")}: {health}
+        </Text>
       </View>
-    );
+      <View style={styles.questionContainer}>
+        <Text style={styles.textStyle}>{question.questionContent || ""}</Text>
+      </View>
+      <View>
+        <FlatList
+          data={question.options || []}
+          renderItem={({ item }) => (
+            <ChoiceContent
+              data={item}
+              clickFn={onClickAnswer}
+              wrongAnswer={wrongAnswer}
+            />
+          )}
+        />
+      </View>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -148,18 +146,18 @@ const styles = StyleSheet.create({
     width: "80%",
     height: "100%",
     marginHorizontal: "10%",
-    gap: 30,
+    gap: 30
   },
   headerContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   headerInfo: {
     color: "#0045FD",
     // width: '100%',
     // textAlign: 'right',
-    fontSize: 25,
+    fontSize: 25
   },
   questionContainer: {
     borderRadius: 50,
@@ -167,11 +165,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: "#0045FD",
     padding: 20,
-    marginBottom: 50,
+    marginBottom: 50
   },
   textStyle: {
-    color: "white",
-  },
+    color: "white"
+  }
 });
 
 export default GameScreen;

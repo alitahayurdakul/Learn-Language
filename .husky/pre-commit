@@ -1,0 +1,4 @@
+npm run prettier-fix
+npx lint-staged
+npm run lint
+npm run lint-fix

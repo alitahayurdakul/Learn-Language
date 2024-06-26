@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { BackHandler } from "react-native";
 
-
 export const useGoBackHandler = (
   navigation?: any,
   navigationScreen?: string
@@ -13,6 +12,7 @@ export const useGoBackHandler = (
       } else {
         null;
       }
+
       return true;
     };
 
@@ -22,5 +22,5 @@ export const useGoBackHandler = (
     );
 
     return () => backHandler.remove();
-  }, []);
+  }, [navigation, navigationScreen]);
 };

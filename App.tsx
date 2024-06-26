@@ -1,17 +1,16 @@
+import "@/locales/i18n.config";
+
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
+import HomepageScreen from "navigations/HomepageScreen";
 import {
   GameOverScreen,
   GameScreen,
   ScoresScreen,
   StartScreen,
   SuccessScreen,
-  WelcomePage,
+  WelcomePage
 } from "navigations/index";
-
-import "@/locales/i18n.config";
-import HomepageScreen from "navigations/HomepageScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +31,7 @@ export default function App() {
         initialRouteName="WelcomePage"
         screenOptions={{
           headerBackVisible: false,
-          headerShown: false,
+          headerShown: false
         }}
       >
         <Stack.Screen component={WelcomePage} name="WelcomePage" />

@@ -1,5 +1,5 @@
-import { useTranslation } from "react-i18next";
 import { StyleSheet, Text, View } from "react-native";
+import { useTranslation } from "react-i18next";
 import { IScoreDataTypes } from "types/HomepageTypes";
 
 interface IPropsTypes {
@@ -28,21 +28,21 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   cell: {
     flex: 1,
     padding: 10,
     textAlign: "center",
-    fontSize: 15,
+    fontSize: 15
   },
   orderText: {
-    fontWeight: "bold",
+    fontWeight: "bold"
   },
   wideCell: {
-    flex: 1.5,
+    flex: 1.5
   },
   dateCell: {
-    flex: 2,
-  },
+    flex: 2
+  }
 });

@@ -1,16 +1,16 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import {
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
-import Icon from "react-native-ico-flags";
-import { AntDesign } from "@expo/vector-icons";
-
 import { ILanguageListTypes, LANGUAGE_LIST } from "const/LanguageList";
+import { useTranslation } from "react-i18next";
+import Icon from "react-native-ico-flags";
+
+import { AntDesign } from "@expo/vector-icons";
 
 export const LanguageModal = () => {
   const { t } = useTranslation("translation", { keyPrefix: "language" });
@@ -32,11 +32,11 @@ export const LanguageModal = () => {
               <TouchableOpacity
                 style={[
                   styles.language,
-                  i18n.language === language.name && styles.activeLanguage,
+                  i18n.language === language.name && styles.activeLanguage
                 ]}
                 onPress={() => onSelectLanguage(language.name)}
               >
-                <View style={styles.languageLeftSection} >
+                <View style={styles.languageLeftSection}>
                   <Icon name={language.flag} height="35" width="35" />
                   <Text style={styles.languageText}>{t(language.name)}</Text>
                 </View>
@@ -58,23 +58,23 @@ const styles = StyleSheet.create({
     backgroundColor: "#FAF8F8",
     display: "flex",
     gap: 20,
-    padding: 20,
+    padding: 20
   },
   titleText: {
     textAlign: "center",
     fontWeight: "600",
-    fontSize: 25,
+    fontSize: 25
     // color: "gray",
   },
   titleDescription: {
     textAlign: "center",
     color: "gray",
-    lineHeight: 20,
+    lineHeight: 20
   },
   languageListContainer: {
     display: "flex",
     flexDirection: "column",
-    gap: 15,
+    gap: 15
   },
   language: {
     display: "flex",
@@ -83,20 +83,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
     borderRadius: 30,
-    backgroundColor: "#fff",
+    backgroundColor: "#fff"
   },
   activeLanguage: {
     borderColor: "#0045FD",
-    borderWidth: 1,
+    borderWidth: 1
   },
   languageLeftSection: {
     display: "flex",
     alignItems: "center",
     flexDirection: "row",
-    gap: 20,
+    gap: 20
   },
   languageText: {
     fontWeight: "600",
-    fontSize: 17,
-  },
+    fontSize: 17
+  }
 });

@@ -1,5 +1,5 @@
-import { useTranslation } from "react-i18next";
 import { StyleSheet, Text } from "react-native";
+import { useTranslation } from "react-i18next";
 
 export const Footer = () => {
   const { t } = useTranslation("translation");
@@ -14,6 +14,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingVertical: 10,
     fontWeight: "bold",
-    color: "white",
-  },
+    color: "white"
+  }
 });

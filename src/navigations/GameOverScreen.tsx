@@ -1,21 +1,22 @@
-import { BackHandler, FlatList, StyleSheet, Text, View } from "react-native";
-import { useTranslation } from "react-i18next";
-import { MaterialIcons } from "@expo/vector-icons";
-
-import { useGoBackHandler } from "hooks/useGoBackHandler";
+import React from "react";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import Item from "components/common/MenuItem";
-import { IHomePageMenuDataTypes } from "types/HomepageTypes";
 import { ScreenEnums } from "enums/screenEnums";
+import { useGoBackHandler } from "hooks/useGoBackHandler";
+import { useTranslation } from "react-i18next";
+import { IHomePageMenuDataTypes } from "types/HomepageTypes";
+
+import { MaterialIcons } from "@expo/vector-icons";
 
 const GameOverMenu: IHomePageMenuDataTypes[] = [
   {
     key: "homepage",
-    routePageName: ScreenEnums.homepage,
+    routePageName: ScreenEnums.homepage
   },
   {
     key: "reloadGame",
-    routePageName: ScreenEnums.start,
-  },
+    routePageName: ScreenEnums.start
+  }
 ];
 
 const GameOverScreen = ({ route }: { route: any }) => {
@@ -48,22 +49,22 @@ const styles = StyleSheet.create({
     gap: 30,
     width: "80%",
     marginHorizontal: "10%",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   notificationContainer: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: 10,
+    gap: 10
   },
   textStyle: {
     color: "red",
-    fontSize: 30,
+    fontSize: 30
   },
   scoreStyle: {
     color: "black",
-    fontSize: 20,
-  },
+    fontSize: 20
+  }
 });
 
 export default GameOverScreen;

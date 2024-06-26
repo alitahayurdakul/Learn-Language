@@ -1,74 +1,74 @@
 import { IGameQuestionTypes } from "types/HomepageTypes";
 
 export const GameQuestionsMenu: IGameQuestionTypes = {
-    enToTr: [
+  enToTr: [
+    {
+      questionContent: "Questionn",
+      answer: "A",
+      options: [
         {
-            questionContent: "Questionn",
-            answer: "A",
-            options: [
-                {
-                    key: "A",
-                    content: "Soru"
-                },
-                {
-                    key: "B",
-                    content: "Cevap"
-                },
-                {
-                    key: "C",
-                    content: "Ev"
-                },
-                {
-                    key: "D",
-                    content: "Bahçe"
-                }
-            ]
+          key: "A",
+          content: "Soru"
         },
         {
-            questionContent: "Answer",
-            answer: "B",
-            options: [
-                {
-                    key: "A",
-                    content: "Soru"
-                },
-                {
-                    key: "B",
-                    content: "Cevap"
-                },
-                {
-                    key: "C",
-                    content: "Ev"
-                },
-                {
-                    key: "D",
-                    content: "Bahçe"
-                }
-            ]
-        }
-    ],
-    trToEn: [
+          key: "B",
+          content: "Cevap"
+        },
         {
-            questionContent: "Soru",
-            answer: "B",
-            options: [
-                {
-                    key: "A",
-                    content: "Answer"
-                },
-                {
-                    key: "B",
-                    content: "Question"
-                },
-                {
-                    key: "C",
-                    content: "Home"
-                },
-                {
-                    key: "D",
-                    content: "Garden"
-                }
-            ]
+          key: "C",
+          content: "Ev"
+        },
+        {
+          key: "D",
+          content: "Bahçe"
         }
-    ]
-}
+      ]
+    },
+    {
+      questionContent: "Answer",
+      answer: "B",
+      options: [
+        {
+          key: "A",
+          content: "Soru"
+        },
+        {
+          key: "B",
+          content: "Cevap"
+        },
+        {
+          key: "C",
+          content: "Ev"
+        },
+        {
+          key: "D",
+          content: "Bahçe"
+        }
+      ]
+    }
+  ],
+  trToEn: [
+    {
+      questionContent: "Soru",
+      answer: "B",
+      options: [
+        {
+          key: "A",
+          content: "Answer"
+        },
+        {
+          key: "B",
+          content: "Question"
+        },
+        {
+          key: "C",
+          content: "Home"
+        },
+        {
+          key: "D",
+          content: "Garden"
+        }
+      ]
+    }
+  ]
+};

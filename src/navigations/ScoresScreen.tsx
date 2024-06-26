@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
 import Header from "components/header/Header";
 import { ScoreDetail } from "components/scores/ScoreDetail";
-
+import { useTranslation } from "react-i18next";
 import { IScoreDataTypes } from "types/HomepageTypes";
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ScoresScreen = () => {
   const { t } = useTranslation("translation");
@@ -14,7 +13,7 @@ const ScoresScreen = () => {
 
   const getScoreList = useCallback(async () => {
     // await AsyncStorage.removeItem("scores");
-    let scoreList = await AsyncStorage.getItem("scores");
+    const scoreList = await AsyncStorage.getItem("scores");
     if (scoreList !== null && scoreList) {
       setScores(JSON.parse(scoreList).reverse());
     }
@@ -67,15 +66,15 @@ const styles = StyleSheet.create({
     flex: 1,
     display: "flex",
     flexDirection: "column",
-    gap: 20,
+    gap: 20
   },
   table: {
-    marginBottom: 10,
+    marginBottom: 10
   },
   row: {
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   headerCell: {
     flex: 1,
@@ -84,19 +83,19 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "black",
     borderColor: "black",
-    fontWeight: "bold",
+    fontWeight: "bold"
   },
   wideCell: {
-    flex: 1.5,
+    flex: 1.5
   },
   dateCell: {
-    flex: 2,
+    flex: 2
   },
   notFound: {
     textAlign: "center",
     fontSize: 16,
-    paddingTop: 10,
-  },
+    paddingTop: 10
+  }
 });
 
 export default ScoresScreen;

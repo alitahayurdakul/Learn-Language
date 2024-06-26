@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Modal, StyleSheet, Text, View } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
-
 import { LanguageModal } from "components/common/LanguageModal";
+
+import { FontAwesome } from "@expo/vector-icons";
 
 interface IPropsTypes {
   headerName: string;
@@ -43,7 +43,7 @@ const Header = ({ headerName }: IPropsTypes) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    width: "100%"
   },
   languageIconContainer: {
     textAlign: "right",
@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
     color: "#1700FD",
     alignSelf: "center",
     paddingBottom: 40,
-    fontWeight: "600",
-  },
+    fontWeight: "600"
+  }
 });
 
 export default Header;
