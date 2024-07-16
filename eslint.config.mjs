@@ -100,14 +100,16 @@ export default tseslint.config(
       "no-mixed-requires": "error",
       "no-this-before-super": "warn",
       "no-unreachable": "warn",
-      "no-unused-vars": "off",
+      "no-unused-vars": "warn",
       "max-len": ["warn", { code: 80, comments: 100, ignoreComments: false }],
       "no-fallthrough": "warn",
       "newline-before-return": "warn",
       "no-return-await": "warn",
       // can convert as-needer to always
       "arrow-body-style": ["error", "as-needed"],
-      "no-unexpected-multiline": "error"
+      "no-unexpected-multiline": "error",
+      "react-native/no-unused-styles": 1, // or 2 for error
+      "react-native/no-inline-styles": 0
     }
   },
   {
