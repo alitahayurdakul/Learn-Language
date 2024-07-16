@@ -1,17 +1,27 @@
 {
-    "getStarted": "Hadi Başlayalım",
-    "start": "Başla",
-    "myScores": "Skorlarım",
-    "aboutUs": "Hakkımızda",
-    "enToTr": "İngilizce - Türkçe",
-    "trToEn": "Türkçe - İngilizce",
-    "homepage": "Anasayfa",
-    "reloadGame": "Yeniden Oyna",
-    "score": "Skorunuz",
-    "health": "Can",
-    "gameOver": "Oyun Bitti",
-    "selectList": {
-        "en": "İngilizce",
-        "tr": "Türkçe"
-    }
+  "getStarted": "Hadi Başlayalım",
+  "start": "Başla",
+  "myScores": "Skorlarım",
+  "aboutUs": "Hakkımızda",
+  "enToTr": "İngilizce - Türkçe",
+  "trToEn": "Türkçe - İngilizce",
+  "homepage": "Anasayfa",
+  "reloadGame": "Yeniden Oyna",
+  "score": "Skorunuz",
+  "health": "Can",
+  "gameOver": "Oyun Bitti",
+  "scores": "Skorlarınız",
+  "language": {
+    "title": "Dil",
+    "description": "Dilinizi seçip uygulamanızı istediğiniz dilde özelleştirebilirsiniz.",
+    "tr": "Türkçe",
+    "en": "İngilizce"
+  },
+  "scoreTableHeader": {
+    "order": "Sıra",
+    "score": "Skor",
+    "date": "Tarih"
+  },
+  "footer": "Telif hakkı © 2024 Ali Taha Yurdakul, Tüm Hakları Saklıdır.",
+  "notFoundScoreData": "Skor verisi bulunamadı"
 }

@@ -1,17 +1,32 @@
 {
-    "getStarted": "Get Started",
-    "start": "Start",
-    "myScores": "My Scores",
-    "aboutUs": "About Us",
-    "enToTr": "English - Turkish",
-    "trToEn": "Turkish - English",
-    "homepage": "Homepage",
-    "reloadGame": "Play Again",
-    "score": "Your Score",
-    "health": "Health",
-    "gameOver": "Game Over",
-    "selectList": {
-        "en": "English",
-        "tr": "Turkish"
-    }
+  "getStarted": "Get Started",
+  "start": "Start",
+  "myScores": "My Scores",
+  "aboutUs": "About Us",
+  "enToTr": "English - Turkish",
+  "trToEn": "Turkish - English",
+  "homepage": "Homepage",
+  "reloadGame": "Play Again",
+  "score": "Your Score",
+  "health": "Health",
+  "gameOver": "Game Over",
+  "scores": "Your Scores",
+  "language": {
+    "title": "Language",
+    "description": "You can choose the language and customise your application in the language you want",
+    "tr": "Turkish",
+    "en": "English"
+  },
+  "scoreTableHeader": {
+    "order": "Order",
+    "score": "Score",
+    "date": "Date",
+    "gameType": "Game"
+  },
+  "gameType": {
+    "enToTr": "EN - TR",
+    "trToEn": "TR - EN"
+  },
+  "footer": "Copyright © 2024 Ali Taha Yurdakul, All Rights Reserved.",
+  "notFoundScoreData": "Not found score data"
 }
