@@ -1,9 +1,10 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { ScreenEnums } from "enums/screenEnums";
 
 const WelcomePage = (props: any) => {
   const onClick = () => {
-    props.navigation.navigate("HomepageScreen");
+    props.navigation.navigate(ScreenEnums.login);
   };
 
   return (

@@ -87,7 +87,7 @@ export default tseslint.config(
       // "@typescript-eslint/naming-convention": "warn",
       "@typescript-eslint/no-unused-vars": "warn",
       "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
+      // "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
       // "@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports" }],
       // "@typescript-eslint/explicit-function-return-type": ["error", { allowExpressions: true }],
       "@typescript-eslint/consistent-type-exports": "error",

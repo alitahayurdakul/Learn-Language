@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { HomePageMenuDatas } from "const/HomepageMenu";
+import { HOME_PAGE_MENU_DATAS } from "const/HomepageMenu";
 import { IHomePageMenuDataTypes } from "types/HomepageTypes";
 
 import Item from "@/components/common/MenuItem";
 
 const HomeBody = () => (
   <View style={styles.container}>
-    {HomePageMenuDatas.map((data: IHomePageMenuDataTypes, index: number) => (
+    {HOME_PAGE_MENU_DATAS.map((data: IHomePageMenuDataTypes, index: number) => (
       <React.Fragment key={index}>
         <Item data={data} />
       </React.Fragment>

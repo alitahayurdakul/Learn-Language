@@ -1,16 +1,21 @@
+import { ScreenEnums } from "enums/screenEnums";
 import { IHomePageMenuDataTypes } from "types/HomepageTypes";
 
-export const HomePageMenuDatas: IHomePageMenuDataTypes[] = [
+export const HOME_PAGE_MENU_DATAS: IHomePageMenuDataTypes[] = [
   {
     key: "start",
-    routePageName: "StartScreen"
+    routePageName: ScreenEnums.start
   },
   {
     key: "myScores",
-    routePageName: "ScoresScreen"
+    routePageName: ScreenEnums.scoresList
   },
   {
     key: "aboutUs",
-    routePageName: "AboutScreen"
+    routePageName: ScreenEnums.about
+  },
+  {
+    key: "logOut",
+    routePageName: ScreenEnums.login
   }
 ];

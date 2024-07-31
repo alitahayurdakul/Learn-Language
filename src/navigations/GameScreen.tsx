@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import ChoiceContent from "components/common/ChoiceContent";
 import { GameQuestionsMenu } from "const/GameMenu";
+import { ScreenEnums } from "enums/screenEnums";
 import { useTranslation } from "react-i18next";
 import {
   IGameQuestionTypes,
@@ -86,7 +87,7 @@ const GameScreen = ({ route }: { route: any }) => {
         );
         if (newQuestionList.length < 1) {
           onSetLocalStorage(score + 1);
-          navigation.navigate("SuccessScreen", {
+          navigation.navigate(ScreenEnums.success, {
             score: score + 1
           });
         } else {
@@ -98,7 +99,7 @@ const GameScreen = ({ route }: { route: any }) => {
       } else {
         if (health - 1 === 0) {
           onSetLocalStorage(score);
-          navigation.navigate("GameOverScreen", {
+          navigation.navigate(ScreenEnums.gameOver, {
             score
           });
         } else {

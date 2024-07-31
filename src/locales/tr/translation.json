@@ -22,6 +22,20 @@
     "score": "Skor",
     "date": "Tarih"
   },
+  "gameType": {
+    "enToTr": "EN - TR",
+    "trToEn": "TR - EN"
+  },
+  "login": {
+    "header": "Kullanıcı Girişi",
+    "username": "Kullanıcı Adı",
+    "password": "Şifre",
+    "signIn": "Giriş Yap",
+    "palceholders": {
+      "username": "Lütfen kullanıcı adınızı giriniz",
+      "password": "Lütfen şifrenizi giriniz"
+    }
+  },
   "footer": "Telif hakkı © 2024 Ali Taha Yurdakul, Tüm Hakları Saklıdır.",
   "notFoundScoreData": "Skor verisi bulunamadı"
 }
