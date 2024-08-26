@@ -12,7 +12,8 @@ const HomeBody = () => (
         <Item data={data} />
       </React.Fragment>
     ))}
-    {/* <FlatList data={HomePageMenuDatas} keyExtractor={(data: IHomePageMenuDataTypes) => data.key} 
+    {/* <FlatList data={HomePageMenuDatas}
+     keyExtractor={(data: IHomePageMenuDataTypes) => data.key} 
     renderItem={({ item }) => <Item data={item} />} />
      */}
   </View>

@@ -3,6 +3,7 @@
   "appName": "English Game",
   "start": "Start",
   "myScores": "My Scores",
+  "personalInformation": "Information",
   "logOut": "Log Out",
   "aboutUs": "About Us",
   "enToTr": "English - Turkish",
@@ -82,10 +83,36 @@
       "login": "Login"
     },
     "errors": {
-      "mail": "Please enter a valid email address",
+      "email": "Please enter a valid email address",
       "match": "Passwords doesn't match",
       "required": "This field is required",
       "min": "Password should be minimum {{count}} characters"
+    }
+  },
+
+  "personal-information-forms": {
+    "fullName": "Full Name",
+    "username": "Username",
+    "email": "Email",
+    "age": "Age",
+    "country": "Country",
+    "password": "Password",
+    "rePassword": "Re-Enter Password",
+    "placeholders": {
+      "fullName": "Plese enter your full name",
+      "username": "Plese enter your username",
+      "password": "Please enter your password",
+      "rePassword": "Please enter your re-password",
+      "email": "Plese enter your email",
+      "age": "Please enter your age",
+      "select": "Select"
+    },
+    "buttons": {
+      "update-personal-info": "Update",
+      "update-password": "Update Password"
+    },
+    "subHeaders": {
+      "information": "Personal Information"
     }
   },
 

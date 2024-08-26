@@ -103,7 +103,7 @@ export default tseslint.config(
       "no-unused-vars": "warn",
       "max-len": ["warn", { code: 80, comments: 100, ignoreComments: false }],
       "no-fallthrough": "warn",
-      "newline-before-return": "warn",
+      "newline-before-return": "off",
       "no-return-await": "warn",
       // can convert as-needer to always
       "arrow-body-style": ["error", "as-needed"],

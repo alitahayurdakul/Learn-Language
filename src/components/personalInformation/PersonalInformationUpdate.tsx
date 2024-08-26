@@ -7,15 +7,15 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { REGISTER_FORM_ELEMENTS } from "const/RegisterForm";
-import { FormElementsEnums, ScreenEnums } from "enums/screenEnums";
+import { INFORMATION_UPDATE_FORM_ELEMENTS } from "const/InformationUpdate";
+import { FormElementsEnums } from "enums/screenEnums";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import {
   ICommonFormElementTypes,
-  IRegisterFormType
+  IPersonalInformationTypes
 } from "types/HomepageTypes";
-import { RegisterValidation } from "utils/registerValidation";
+import { PersonalInformationValidation } from "utils/personalInformationValidation";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -23,29 +23,29 @@ const borderRadius = 15;
 const commonColor = "#9f25e9";
 const commonColorDark = "#9900f5";
 
-const RegisterScreen = (props: any) => {
-  const { t } = useTranslation("translation", { keyPrefix: "register" });
+export const PersonalInformationUpdate = () => {
+  const { t } = useTranslation("translation", {
+    keyPrefix: "personal-information-forms"
+  });
   const {
     control,
     handleSubmit,
     formState: { errors }
-  } = useForm<IRegisterFormType>({
-    resolver: yupResolver(RegisterValidation(t))
+  } = useForm<IPersonalInformationTypes>({
+    resolver: yupResolver(PersonalInformationValidation(t))
   });
   const [focused, setFocused] = useState<string>("");
 
-  const onSubmit: SubmitHandler<IRegisterFormType> = (values) => {
-    if (values) {
-      props.navigation.navigate(ScreenEnums.login);
-    }
+  const onSubmit: SubmitHandler<IPersonalInformationTypes> = (values) => {
+    console.log(values);
   };
 
   return (
     <ScrollView>
-      <View style={styles.loginContainer}>
-        <Text style={styles.header}>{t("header")}</Text>
+      <View style={styles.personalInformationContainer}>
+        <Text style={styles.header}>{t("subHeaders.information")}</Text>
         <View style={styles.form}>
-          {REGISTER_FORM_ELEMENTS.map(
+          {INFORMATION_UPDATE_FORM_ELEMENTS.map(
             (element: ICommonFormElementTypes, index: number) => {
               if (element.type === FormElementsEnums.TEXT) {
                 return (
@@ -53,7 +53,7 @@ const RegisterScreen = (props: any) => {
                     <View>
                       <Controller
                         control={control}
-                        name={element.key as keyof IRegisterFormType}
+                        name={element.key as keyof IPersonalInformationTypes}
                         render={({ field: { onChange, value, name } }) => (
                           <>
                             <Text style={styles.label}>{t(name)}</Text>
@@ -72,11 +72,14 @@ const RegisterScreen = (props: any) => {
                         )}
                         defaultValue=""
                       />
-                      {errors[element.key as keyof IRegisterFormType] && (
+                      {errors[
+                        element.key as keyof IPersonalInformationTypes
+                      ] && (
                         <Text style={styles.errorText}>
                           {
-                            errors[element.key as keyof IRegisterFormType]
-                              ?.message as string
+                            errors[
+                              element.key as keyof IPersonalInformationTypes
+                            ]?.message as string
                           }
                         </Text>
                       )}
@@ -91,7 +94,7 @@ const RegisterScreen = (props: any) => {
                     <View>
                       <Controller
                         control={control}
-                        name={element.key as keyof IRegisterFormType}
+                        name={element.key as keyof IPersonalInformationTypes}
                         render={({ field: { onChange, value, name } }) => (
                           <>
                             <Text style={styles.label}>{t(name)}</Text>
@@ -118,49 +121,14 @@ const RegisterScreen = (props: any) => {
                         }}
                         defaultValue=""
                       />
-                      {errors[element.key as keyof IRegisterFormType] && (
+                      {errors[
+                        element.key as keyof IPersonalInformationTypes
+                      ] && (
                         <Text style={styles.errorText}>
                           {
-                            errors[element.key as keyof IRegisterFormType]
-                              ?.message as string
-                          }
-                        </Text>
-                      )}
-                    </View>
-                  </React.Fragment>
-                );
-              }
-
-              if (element.type === FormElementsEnums.PASSWORD) {
-                return (
-                  <React.Fragment key={index}>
-                    <View>
-                      <Controller
-                        control={control}
-                        name={element.key as keyof IRegisterFormType}
-                        render={({ field: { onChange, value, name } }) => (
-                          <>
-                            <Text style={styles.label}>{t(name)}</Text>
-                            <TextInput
-                              style={[
-                                styles.input,
-                                focused === name && styles.focusInput
-                              ]}
-                              placeholder={t(`placeholders.${name}`)}
-                              onChangeText={onChange}
-                              value={value as string}
-                              onFocus={() => setFocused(name)}
-                              onBlur={() => setFocused("")}
-                            />
-                          </>
-                        )}
-                        defaultValue=""
-                      />
-                      {errors[element.key as keyof IRegisterFormType] && (
-                        <Text style={styles.errorText}>
-                          {
-                            errors[element.key as keyof IRegisterFormType]
-                              ?.message as string
+                            errors[
+                              element.key as keyof IPersonalInformationTypes
+                            ]?.message as string
                           }
                         </Text>
                       )}
@@ -175,16 +143,10 @@ const RegisterScreen = (props: any) => {
             style={styles.button}
             onPress={handleSubmit(onSubmit)}
           >
-            <Text style={styles.buttonText}>{t("register-button")}</Text>
+            <Text style={styles.buttonText}>
+              {t("buttons.update-personal-info")}
+            </Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.linkContainer}>
-          <Text
-            style={styles.registerText}
-            onPress={() => props.navigation.navigate(ScreenEnums.login)}
-          >
-            {t("links.login")}
-          </Text>
         </View>
       </View>
     </ScrollView>
@@ -192,7 +154,7 @@ const RegisterScreen = (props: any) => {
 };
 
 const styles = StyleSheet.create({
-  loginContainer: {
+  personalInformationContainer: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
@@ -244,17 +206,5 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontSize: 18
-  },
-  linkContainer: {
-    display: "flex",
-    flex: 0.3,
-    justifyContent: "space-between",
-    marginTop: 10
-  },
-  registerText: {
-    textAlign: "center",
-    color: commonColor
   }
 });
-
-export default RegisterScreen;

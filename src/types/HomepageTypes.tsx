@@ -62,3 +62,10 @@ export interface ICommonFormElementTypes {
 }
 
 export type ICommonFormType = Array<ICommonFormElementTypes>;
+
+export interface IPersonalInformationTypes {
+  fullName: string;
+  username: string;
+  age: number;
+  country: string;
+}

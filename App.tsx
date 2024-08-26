@@ -9,6 +9,7 @@ import {
   GameOverScreen,
   GameScreen,
   LoginScreen,
+  PersonalInformationScreen,
   RegisterScreen,
   ScoresScreen,
   StartScreen,
@@ -51,6 +52,10 @@ export default function App() {
         <Stack.Screen component={GameOverScreen} name={ScreenEnums.gameOver} />
         <Stack.Screen component={ScoresScreen} name={ScreenEnums.scoresList} />
         <Stack.Screen component={SuccessScreen} name={ScreenEnums.success} />
+        <Stack.Screen
+          component={PersonalInformationScreen}
+          name={ScreenEnums.personalInfo}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -11,6 +11,10 @@ export const HOME_PAGE_MENU_DATAS: IHomePageMenuDataTypes[] = [
     routePageName: ScreenEnums.scoresList
   },
   {
+    key: "personalInformation",
+    routePageName: ScreenEnums.personalInfo
+  },
+  {
     key: "aboutUs",
     routePageName: ScreenEnums.about
   },

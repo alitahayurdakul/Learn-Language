@@ -26,7 +26,7 @@ const LoginScreen = (props: any) => {
 
   const onSubmit: SubmitHandler<ILoginFormType> = (values) => {
     if (values) {
-      props.navigation.navigate(ScreenEnums.login);
+      props.navigation.navigate(ScreenEnums.homepage);
     }
   };
 

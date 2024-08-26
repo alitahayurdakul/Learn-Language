@@ -9,7 +9,8 @@ export enum ScreenEnums {
   about = "AboutScreen",
   login = "LoginScreen",
   forgotPassword = "ForgetPasswordScreen",
-  register = "RegisterScreen"
+  register = "RegisterScreen",
+  personalInfo = "PersonalInformationScreen"
 }
 
 export enum FilterTypesEnums {
