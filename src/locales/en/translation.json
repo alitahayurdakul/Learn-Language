@@ -113,9 +113,18 @@
     },
     "subHeaders": {
       "information": "Personal Information"
+    },
+    "errors": {
+      "email": "Please enter a valid email address",
+      "match": "Passwords doesn't match",
+      "required": "This field is required",
+      "min": "Password should be minimum {{count}} characters"
     }
   },
 
   "footer": "Copyright © 2024 Ali Taha Yurdakul, All Rights Reserved.",
-  "notFoundScoreData": "Not found score data"
+  "notFoundScoreData": "Not found score data",
+  "buttons": {
+    "add-my-words": "Add"
+  }
 }

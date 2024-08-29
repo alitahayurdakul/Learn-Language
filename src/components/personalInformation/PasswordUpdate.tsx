@@ -6,15 +6,15 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { INFORMATION_UPDATE_FORM_ELEMENTS } from "const/InformationUpdate";
+import { PASSWORD_UPDATE_FORM_ELEMENTS } from "const/InformationUpdate";
 import { FormElementsEnums } from "enums/screenEnums";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import {
   ICommonFormElementTypes,
-  IPersonalInformationTypes
+  IPasswordUpdateTypes
 } from "types/HomepageTypes";
-import { PersonalInformationValidation } from "utils/personalInformationValidation";
+import { PasswordUpdateValidation } from "utils/personalInformationValidation";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -22,7 +22,7 @@ const borderRadius = 15;
 const commonColor = "#9f25e9";
 const commonColorDark = "#9900f5";
 
-export const PersonalInformationUpdate = () => {
+export const PasswordUpdate = () => {
   const { t } = useTranslation("translation", {
     keyPrefix: "personal-information-forms"
   });
@@ -30,29 +30,29 @@ export const PersonalInformationUpdate = () => {
     control,
     handleSubmit,
     formState: { errors }
-  } = useForm<IPersonalInformationTypes>({
-    resolver: yupResolver(PersonalInformationValidation(t))
+  } = useForm<IPasswordUpdateTypes>({
+    resolver: yupResolver(PasswordUpdateValidation(t))
   });
   const [focused, setFocused] = useState<string>("");
 
-  const onSubmit: SubmitHandler<IPersonalInformationTypes> = (values) => {
+  const onSubmit: SubmitHandler<IPasswordUpdateTypes> = (values) => {
     console.log(values);
   };
 
   return (
     <View>
-      <View style={styles.personalInformationContainer}>
+      <View style={styles.updatePasswordContainer}>
         <Text style={styles.header}>{t("subHeaders.information")}</Text>
         <View style={styles.form}>
-          {INFORMATION_UPDATE_FORM_ELEMENTS.map(
+          {PASSWORD_UPDATE_FORM_ELEMENTS.map(
             (element: ICommonFormElementTypes, index: number) => {
-              if (element.type === FormElementsEnums.TEXT) {
+              if (element.type === FormElementsEnums.PASSWORD) {
                 return (
                   <React.Fragment key={index}>
                     <View>
                       <Controller
                         control={control}
-                        name={element.key as keyof IPersonalInformationTypes}
+                        name={element.key as keyof IPasswordUpdateTypes}
                         render={({ field: { onChange, value, name } }) => (
                           <>
                             <Text style={styles.label}>{t(name)}</Text>
@@ -71,63 +71,11 @@ export const PersonalInformationUpdate = () => {
                         )}
                         defaultValue=""
                       />
-                      {errors[
-                        element.key as keyof IPersonalInformationTypes
-                      ] && (
+                      {errors[element.key as keyof IPasswordUpdateTypes] && (
                         <Text style={styles.errorText}>
                           {
-                            errors[
-                              element.key as keyof IPersonalInformationTypes
-                            ]?.message as string
-                          }
-                        </Text>
-                      )}
-                    </View>
-                  </React.Fragment>
-                );
-              }
-
-              if (element.type === FormElementsEnums.NUMBER) {
-                return (
-                  <React.Fragment key={index}>
-                    <View>
-                      <Controller
-                        control={control}
-                        name={element.key as keyof IPersonalInformationTypes}
-                        render={({ field: { onChange, value, name } }) => (
-                          <>
-                            <Text style={styles.label}>{t(name)}</Text>
-                            <TextInput
-                              style={[
-                                styles.input,
-                                focused === name && styles.focusInput
-                              ]}
-                              placeholder={t(`placeholders.${name}`)}
-                              onChangeText={onChange}
-                              value={value as string}
-                              onFocus={() => setFocused(name)}
-                              onBlur={() => setFocused("")}
-                              keyboardType="numeric"
-                            />
-                          </>
-                        )}
-                        rules={{
-                          required: t(`errors.${element.key}`),
-                          pattern: {
-                            value: /^\d+$/,
-                            message: t(`errors.number`)
-                          }
-                        }}
-                        defaultValue=""
-                      />
-                      {errors[
-                        element.key as keyof IPersonalInformationTypes
-                      ] && (
-                        <Text style={styles.errorText}>
-                          {
-                            errors[
-                              element.key as keyof IPersonalInformationTypes
-                            ]?.message as string
+                            errors[element.key as keyof IPasswordUpdateTypes]
+                              ?.message as string
                           }
                         </Text>
                       )}
@@ -143,7 +91,7 @@ export const PersonalInformationUpdate = () => {
             onPress={handleSubmit(onSubmit)}
           >
             <Text style={styles.buttonText}>
-              {t("buttons.update-personal-info")}
+              {t("buttons.update-password")}
             </Text>
           </TouchableOpacity>
         </View>
@@ -153,7 +101,7 @@ export const PersonalInformationUpdate = () => {
 };
 
 const styles = StyleSheet.create({
-  personalInformationContainer: {
+  updatePasswordContainer: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center"

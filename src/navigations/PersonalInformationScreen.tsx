@@ -1,17 +1,19 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import Header from "components/header/Header";
+import { PasswordUpdate } from "components/personalInformation/PasswordUpdate";
 import { PersonalInformationUpdate } from "components/personalInformation/PersonalInformationUpdate";
 import { useTranslation } from "react-i18next";
 
 const PersonalInformationScreen = () => {
   const { t } = useTranslation("translation");
   return (
-    <View style={styles.scoresContainer}>
-      <ScrollView style={{ height: "100%" }} nestedScrollEnabled={true}>
+    <ScrollView style={{ height: "100%" }} nestedScrollEnabled={true}>
+      <View style={styles.scoresContainer}>
         <Header headerName={t("personalInformation")} />
         <PersonalInformationUpdate />
-      </ScrollView>
-    </View>
+        <PasswordUpdate />
+      </View>
+    </ScrollView>
   );
 };
 
@@ -20,7 +22,7 @@ const styles = StyleSheet.create({
     flex: 1,
     display: "flex",
     flexDirection: "column",
-    gap: 20,
+    gap: 40,
     paddingTop: 50,
     paddingBottom: 20
   }

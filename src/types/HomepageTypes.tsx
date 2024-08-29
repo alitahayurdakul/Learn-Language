@@ -69,3 +69,8 @@ export interface IPersonalInformationTypes {
   age: number;
   country: string;
 }
+
+export interface IPasswordUpdateTypes {
+  password: string;
+  rePassword: string;
+}
