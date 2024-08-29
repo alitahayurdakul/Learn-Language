@@ -2,14 +2,21 @@ import React, { useCallback, useEffect, useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import Header from "components/header/Header";
 import { ScoreDetail } from "components/scores/ScoreDetail";
+import { FilterTypesEnums, SortingTypeEnums } from "enums/screenEnums";
 import { useTranslation } from "react-i18next";
-import { IScoreDataTypes } from "types/HomepageTypes";
+import { IScoreDataTypes, ISortingFilterItemType } from "types/HomepageTypes";
 
+import { AntDesign } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ScoresScreen = () => {
   const { t } = useTranslation("translation");
   const [scores, setScores] = useState<IScoreDataTypes[] | []>([]);
+  const [sortingFilterItem, setSortingFilterItem] =
+    useState<ISortingFilterItemType>({
+      gameType: "",
+      score: ""
+    });
 
   const getScoreList = useCallback(async () => {
     // await AsyncStorage.removeItem("scores");
@@ -23,6 +30,36 @@ const ScoresScreen = () => {
     getScoreList();
   }, [getScoreList]);
 
+  const onSort = (filterType: keyof IScoreDataTypes, sortingType: string) => {
+    const sortedScores = [...scores];
+
+    if (sortingType === SortingTypeEnums.asc) {
+      sortedScores.sort((data1: IScoreDataTypes, data2: IScoreDataTypes) => {
+        // data1[filterType].localeCompare(data2[filterType])
+        if (data1[filterType] > data2[filterType]) {
+          return 1;
+        }
+        if (data1[filterType] < data2[filterType]) {
+          return -1;
+        }
+
+        return 0;
+      });
+    } else {
+      sortedScores.sort((data1: IScoreDataTypes, data2: IScoreDataTypes) => {
+        if (data1[filterType] < data2[filterType]) {
+          return 1;
+        }
+        if (data1[filterType] > data2[filterType]) {
+          return -1;
+        }
+
+        return 0;
+      });
+    }
+    setScores(sortedScores);
+  };
+
   return (
     <View style={styles.scoresContainer}>
       <ScrollView style={{ paddingHorizontal: 20, paddingTop: 50 }}>
@@ -31,10 +68,52 @@ const ScoresScreen = () => {
         <View style={styles.table}>
           <View style={styles.row}>
             <Text style={styles.headerCell}>{t("scoreTableHeader.order")}</Text>
-            <Text style={styles.headerCell}>{t("scoreTableHeader.score")}</Text>
-            <Text style={{ ...styles.headerCell, ...styles.wideCell }}>
-              {t("scoreTableHeader.gameType")}
-            </Text>
+            <View style={{ ...styles.headerSortCell, ...styles.wideCell }}>
+              <Text style={styles.headerCell}>
+                {t("scoreTableHeader.score")}
+              </Text>
+              <View style={styles.sortContainer}>
+                <AntDesign
+                  name="caretup"
+                  size={10}
+                  color="black"
+                  onPress={() =>
+                    onSort(FilterTypesEnums.score, SortingTypeEnums.asc)
+                  }
+                />
+                <AntDesign
+                  name="caretdown"
+                  size={10}
+                  color="black"
+                  onPress={() =>
+                    onSort(FilterTypesEnums.score, SortingTypeEnums.desc)
+                  }
+                />
+              </View>
+            </View>
+            <View style={{ ...styles.headerSortCell, ...styles.wideCell }}>
+              <Text style={styles.headerCell}>
+                {t("scoreTableHeader.gameType")}
+              </Text>
+              <View style={styles.sortContainer}>
+                <AntDesign
+                  name="caretup"
+                  size={10}
+                  color="black"
+                  onPress={() =>
+                    onSort(FilterTypesEnums.gameType, SortingTypeEnums.asc)
+                  }
+                />
+                <AntDesign
+                  name="caretdown"
+                  size={10}
+                  color="black"
+                  onPress={() =>
+                    onSort(FilterTypesEnums.gameType, SortingTypeEnums.desc)
+                  }
+                />
+              </View>
+            </View>
             <Text style={{ ...styles.headerCell, ...styles.dateCell }}>
               {t("scoreTableHeader.date")}
             </Text>
@@ -76,8 +155,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  headerCell: {
+  headerSortCell: {
     flex: 1,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 5
+  },
+  headerCell: {
     padding: 5,
     textAlign: "center",
     fontSize: 18,
@@ -90,6 +175,10 @@ const styles = StyleSheet.create({
   },
   dateCell: {
     flex: 2
+  },
+  sortContainer: {
+    display: "flex",
+    flexDirection: "column"
   },
   notFound: {
     textAlign: "center",

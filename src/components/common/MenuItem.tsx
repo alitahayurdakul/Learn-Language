@@ -5,7 +5,7 @@ import { IHomePageMenuDataTypes } from "types/HomepageTypes";
 import { useNavigation } from "@react-navigation/native";
 
 const Item = ({ data }: { data: IHomePageMenuDataTypes }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation");
   const navigation = useNavigation<any>();
 
   return (

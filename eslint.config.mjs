@@ -87,7 +87,7 @@ export default tseslint.config(
       // "@typescript-eslint/naming-convention": "warn",
       "@typescript-eslint/no-unused-vars": "warn",
       "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
+      // "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
       // "@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports" }],
       // "@typescript-eslint/explicit-function-return-type": ["error", { allowExpressions: true }],
       "@typescript-eslint/consistent-type-exports": "error",
@@ -103,7 +103,7 @@ export default tseslint.config(
       "no-unused-vars": "warn",
       "max-len": ["warn", { code: 80, comments: 100, ignoreComments: false }],
       "no-fallthrough": "warn",
-      "newline-before-return": "warn",
+      "newline-before-return": "off",
       "no-return-await": "warn",
       // can convert as-needer to always
       "arrow-body-style": ["error", "as-needed"],

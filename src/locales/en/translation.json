@@ -1,7 +1,10 @@
 {
   "getStarted": "Get Started",
+  "appName": "English Game",
   "start": "Start",
   "myScores": "My Scores",
+  "personalInformation": "Information",
+  "logOut": "Log Out",
   "aboutUs": "About Us",
   "enToTr": "English - Turkish",
   "trToEn": "Turkish - English",
@@ -27,6 +30,92 @@
     "enToTr": "EN - TR",
     "trToEn": "TR - EN"
   },
+  "loginForm": {
+    "headers": {
+      "login": "Login",
+      "forgotPassword": "Forget Password"
+    },
+    "username": "Username",
+    "password": "Password",
+    "email": "E-mail",
+    "placeholders": {
+      "username": "Plese enter your username",
+      "password": "Please enter your password",
+      "email": "Plese enter your email"
+    },
+    "errors": {
+      "username": "Username is required",
+      "password": "Password is required",
+      "email": "E-mail is required"
+    },
+    "buttons": {
+      "signIn": "Sign In",
+      "sendPassword": "Send New Password"
+    },
+    "links": {
+      "register": "Here you are",
+      "registerQuestion": "Wanna try our app?",
+      "forgotPassword": "I forgot my password",
+      "login": "Login"
+    }
+  },
+
+  "register": {
+    "header": "Register Now",
+    "fullName": "Full Name",
+    "username": "Username",
+    "email": "Email",
+    "age": "Age",
+    "country": "Country",
+    "password": "Password",
+    "rePassword": "Re-Enter Password",
+    "placeholders": {
+      "fullName": "Plese enter your full name",
+      "username": "Plese enter your username",
+      "password": "Please enter your password",
+      "rePassword": "Please enter your re-password",
+      "email": "Plese enter your email",
+      "age": "Please enter your age",
+      "select": "Select"
+    },
+    "register-button": "Register",
+    "links": {
+      "login": "Login"
+    },
+    "errors": {
+      "email": "Please enter a valid email address",
+      "match": "Passwords doesn't match",
+      "required": "This field is required",
+      "min": "Password should be minimum {{count}} characters"
+    }
+  },
+
+  "personal-information-forms": {
+    "fullName": "Full Name",
+    "username": "Username",
+    "email": "Email",
+    "age": "Age",
+    "country": "Country",
+    "password": "Password",
+    "rePassword": "Re-Enter Password",
+    "placeholders": {
+      "fullName": "Plese enter your full name",
+      "username": "Plese enter your username",
+      "password": "Please enter your password",
+      "rePassword": "Please enter your re-password",
+      "email": "Plese enter your email",
+      "age": "Please enter your age",
+      "select": "Select"
+    },
+    "buttons": {
+      "update-personal-info": "Update",
+      "update-password": "Update Password"
+    },
+    "subHeaders": {
+      "information": "Personal Information"
+    }
+  },
+
   "footer": "Copyright © 2024 Ali Taha Yurdakul, All Rights Reserved.",
   "notFoundScoreData": "Not found score data"
 }

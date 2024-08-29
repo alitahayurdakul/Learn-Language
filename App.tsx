@@ -2,10 +2,15 @@ import "@/locales/i18n.config";
 
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { ScreenEnums } from "enums/screenEnums";
 import HomepageScreen from "navigations/HomepageScreen";
 import {
+  ForgotPasswordScreen,
   GameOverScreen,
   GameScreen,
+  LoginScreen,
+  PersonalInformationScreen,
+  RegisterScreen,
   ScoresScreen,
   StartScreen,
   SuccessScreen,
@@ -28,19 +33,29 @@ export default function App() {
         hidden={false}
       /> */}
       <Stack.Navigator
-        initialRouteName="WelcomePage"
+        initialRouteName={ScreenEnums.welcome}
         screenOptions={{
           headerBackVisible: false,
           headerShown: false
         }}
       >
-        <Stack.Screen component={WelcomePage} name="WelcomePage" />
-        <Stack.Screen component={HomepageScreen} name="HomepageScreen" />
-        <Stack.Screen component={StartScreen} name="StartScreen" />
-        <Stack.Screen component={GameScreen} name="GameScreen" />
-        <Stack.Screen component={GameOverScreen} name="GameOverScreen" />
-        <Stack.Screen component={ScoresScreen} name="ScoresScreen" />
-        <Stack.Screen component={SuccessScreen} name="SuccessScreen" />
+        <Stack.Screen component={WelcomePage} name={ScreenEnums.welcome} />
+        <Stack.Screen component={LoginScreen} name={ScreenEnums.login} />
+        <Stack.Screen
+          component={ForgotPasswordScreen}
+          name={ScreenEnums.forgotPassword}
+        />
+        <Stack.Screen component={RegisterScreen} name={ScreenEnums.register} />
+        <Stack.Screen component={HomepageScreen} name={ScreenEnums.homepage} />
+        <Stack.Screen component={StartScreen} name={ScreenEnums.start} />
+        <Stack.Screen component={GameScreen} name={ScreenEnums.game} />
+        <Stack.Screen component={GameOverScreen} name={ScreenEnums.gameOver} />
+        <Stack.Screen component={ScoresScreen} name={ScreenEnums.scoresList} />
+        <Stack.Screen component={SuccessScreen} name={ScreenEnums.success} />
+        <Stack.Screen
+          component={PersonalInformationScreen}
+          name={ScreenEnums.personalInfo}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
