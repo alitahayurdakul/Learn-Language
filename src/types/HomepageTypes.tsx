@@ -34,10 +34,6 @@ export interface IScoreDataTypes {
   score: string;
   gameType: string;
 }
-export interface ISortingFilterItemType {
-  gameType: typeof FilterTypesEnums | "";
-  score: typeof SortingTypeEnums | "";
-}
 
 export interface ILoginFormType {
   username: string;

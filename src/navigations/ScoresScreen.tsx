@@ -4,7 +4,7 @@ import Header from "components/header/Header";
 import { ScoreDetail } from "components/scores/ScoreDetail";
 import { FilterTypesEnums, SortingTypeEnums } from "enums/screenEnums";
 import { useTranslation } from "react-i18next";
-import { IScoreDataTypes, ISortingFilterItemType } from "types/HomepageTypes";
+import { IScoreDataTypes } from "types/HomepageTypes";
 
 import { AntDesign } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -12,11 +12,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const ScoresScreen = () => {
   const { t } = useTranslation("translation");
   const [scores, setScores] = useState<IScoreDataTypes[] | []>([]);
-  const [sortingFilterItem, setSortingFilterItem] =
-    useState<ISortingFilterItemType>({
-      gameType: "",
-      score: ""
-    });
 
   const getScoreList = useCallback(async () => {
     // await AsyncStorage.removeItem("scores");
