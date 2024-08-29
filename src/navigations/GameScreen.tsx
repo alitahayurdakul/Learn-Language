@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
 import ChoiceContent from "components/common/ChoiceContent";
 import { GameQuestionsMenu } from "const/GameMenu";
 import { ScreenEnums } from "enums/screenEnums";
@@ -53,7 +59,7 @@ const GameScreen = ({ route }: { route: any }) => {
   useEffect(() => {
     setActiveQuestionList(GameQuestionsMenu[type as keyof IGameQuestionTypes]);
     RandomQuestion(GameQuestionsMenu[type as keyof IGameQuestionTypes]);
-  }, []);
+  }, [type]);
 
   const onSetLocalStorage = async (score: number) => {
     try {
@@ -110,6 +116,8 @@ const GameScreen = ({ route }: { route: any }) => {
     }
   };
 
+  const onAddWordHandler = async () => {};
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -123,6 +131,7 @@ const GameScreen = ({ route }: { route: any }) => {
       <View style={styles.questionContainer}>
         <Text style={styles.textStyle}>{question.questionContent || ""}</Text>
       </View>
+
       <View>
         <FlatList
           data={question.options || []}
@@ -135,6 +144,11 @@ const GameScreen = ({ route }: { route: any }) => {
           )}
         />
       </View>
+      <View style={styles.addMyWords}>
+        <TouchableOpacity style={styles.addButton} onPress={onAddWordHandler}>
+          <Text style={styles.addButtonText}>{t("buttons.add-my-words")}</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -143,7 +157,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    // alignItems: 'center',
     width: "80%",
     height: "100%",
     marginHorizontal: "10%",
@@ -156,20 +169,36 @@ const styles = StyleSheet.create({
   },
   headerInfo: {
     color: "#0045FD",
-    // width: '100%',
-    // textAlign: 'right',
     fontSize: 25
   },
   questionContainer: {
     borderRadius: 50,
     borderColor: "white",
     borderWidth: 1,
-    backgroundColor: "#0045FD",
+    // backgroundColor: "#0045FD",
+    backgroundColor: "#9900f5",
     padding: 20,
-    marginBottom: 50
+    marginBottom: 20
   },
   textStyle: {
     color: "white"
+  },
+  addMyWords: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end"
+  },
+  addButton: {
+    backgroundColor: "#9900f5",
+    paddingVertical: 2,
+    width: "15%",
+    borderRadius: 10
+  },
+  addButtonText: {
+    color: "white",
+    alignSelf: "center",
+    fontSize: 11
   }
 });
 
