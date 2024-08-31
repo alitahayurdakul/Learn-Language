@@ -14,6 +14,7 @@
   "health": "Health",
   "gameOver": "Game Over",
   "scores": "Your Scores",
+  "savedWordList": "Saved Words",
   "language": {
     "title": "Language",
     "description": "You can choose the language and customise your application in the language you want",
@@ -124,7 +125,13 @@
 
   "footer": "Copyright © 2024 Ali Taha Yurdakul, All Rights Reserved.",
   "notFoundScoreData": "Not found score data",
+  "notFoundSavedWordData": "Not found saved word data",
   "buttons": {
     "add-my-words": "Add"
+  },
+  "saved-word-list": {
+    "word": "Word",
+    "translationWord": "Translation Word",
+    "translationLangs": "Langs"
   }
 }
