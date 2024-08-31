@@ -1,8 +1,4 @@
-import {
-  FilterTypesEnums,
-  FormElementsEnums,
-  SortingTypeEnums
-} from "enums/screenEnums";
+import { FormElementsEnums } from "enums/screenEnums";
 
 export interface IHomePageMenuDataTypes {
   key: string;
@@ -70,3 +66,11 @@ export interface IPasswordUpdateTypes {
   password: string;
   rePassword: string;
 }
+
+export interface ISavedWordDataType {
+  word: string;
+  translationWord: string;
+  translationLangs: string;
+}
+
+export type ISavedWordList = Array<ISavedWordDataType>;

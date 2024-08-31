@@ -14,7 +14,8 @@ import {
   ScoresScreen,
   StartScreen,
   SuccessScreen,
-  WelcomePage
+  WelcomePage,
+  SavedWordScreen
 } from "navigations/index";
 
 const Stack = createNativeStackNavigator();
@@ -51,6 +52,10 @@ export default function App() {
         <Stack.Screen component={GameScreen} name={ScreenEnums.game} />
         <Stack.Screen component={GameOverScreen} name={ScreenEnums.gameOver} />
         <Stack.Screen component={ScoresScreen} name={ScreenEnums.scoresList} />
+        <Stack.Screen
+          component={SavedWordScreen}
+          name={ScreenEnums.savedWordList}
+        />
         <Stack.Screen component={SuccessScreen} name={ScreenEnums.success} />
         <Stack.Screen
           component={PersonalInformationScreen}

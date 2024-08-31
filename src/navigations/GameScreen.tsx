@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import {
   IGameQuestionTypes,
   IGameType,
+  ISavedWordDataType,
   IScoreDataTypes
 } from "types/HomepageTypes";
 
@@ -116,7 +117,31 @@ const GameScreen = ({ route }: { route: any }) => {
     }
   };
 
-  const onAddWordHandler = async () => {};
+  const onAddWordHandler = async () => {
+    const wordInformations: ISavedWordDataType = {
+      word: question.questionContent,
+      translationLangs: type,
+      translationWord: question.answer
+    };
+    try {
+      const values = await AsyncStorage.getItem("savedWords");
+
+      if (values !== null && values) {
+        const jsonSavedWordList: ISavedWordDataType[] = JSON.parse(values);
+        jsonSavedWordList.push(wordInformations);
+        await AsyncStorage.setItem(
+          "savedWords",
+          JSON.stringify(jsonSavedWordList)
+        );
+      } else {
+        const array = [];
+        array.push(wordInformations);
+        await AsyncStorage.setItem("savedWords", JSON.stringify(array));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <View style={styles.container}>

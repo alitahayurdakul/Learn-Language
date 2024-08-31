@@ -10,7 +10,8 @@ export enum ScreenEnums {
   login = "LoginScreen",
   forgotPassword = "ForgetPasswordScreen",
   register = "RegisterScreen",
-  personalInfo = "PersonalInformationScreen"
+  personalInfo = "PersonalInformationScreen",
+  savedWordList = "SavedWordListScreen"
 }
 
 export enum FilterTypesEnums {
