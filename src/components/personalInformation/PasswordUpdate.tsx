@@ -10,10 +10,7 @@ import { PASSWORD_UPDATE_FORM_ELEMENTS } from "const/InformationUpdate";
 import { FormElementsEnums } from "enums/screenEnums";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import {
-  ICommonFormElementTypes,
-  IPasswordUpdateTypes
-} from "types/HomepageTypes";
+import { IFormElementTypes, IPasswordUpdateTypes } from "types/HomepageTypes";
 import { PasswordUpdateValidation } from "utils/personalInformationValidation";
 
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -45,7 +42,7 @@ export const PasswordUpdate = () => {
         <Text style={styles.header}>{t("subHeaders.information")}</Text>
         <View style={styles.form}>
           {PASSWORD_UPDATE_FORM_ELEMENTS.map(
-            (element: ICommonFormElementTypes, index: number) => {
+            (element: IFormElementTypes, index: number) => {
               if (element.type === FormElementsEnums.PASSWORD) {
                 return (
                   <React.Fragment key={index}>

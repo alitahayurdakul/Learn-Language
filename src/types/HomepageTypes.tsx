@@ -36,6 +36,11 @@ export interface ILoginFormType {
   password: string;
 }
 
+export interface IPasswordUpdateFormType {
+  username: string;
+  email: string;
+}
+
 export interface IRegisterFormType {
   fullName: string;
   username: string;
@@ -46,14 +51,14 @@ export interface IRegisterFormType {
   country: string;
 }
 
-export interface ICommonFormElementTypes {
+export interface IFormElementTypes {
   key: string;
   label: string;
   type: FormElementsEnums;
   apiUrl?: string;
 }
 
-export type ICommonFormType = Array<ICommonFormElementTypes>;
+export type ICommonFormType = Array<IFormElementTypes>;
 
 export interface IPersonalInformationTypes {
   fullName: string;

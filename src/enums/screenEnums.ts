@@ -37,3 +37,9 @@ export enum FormElementsEnums {
   NUMBER = "number",
   PASSWORD = "password"
 }
+
+export enum FormNamesEnums {
+  login = "sign-in",
+  register = "register",
+  forgotPassword = "forgot-password"
+}

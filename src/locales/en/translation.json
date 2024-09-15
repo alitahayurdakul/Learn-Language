@@ -50,7 +50,6 @@
       "email": "E-mail is required"
     },
     "buttons": {
-      "signIn": "Sign In",
       "sendPassword": "Send New Password"
     },
     "links": {
@@ -79,7 +78,6 @@
       "age": "Please enter your age",
       "select": "Select"
     },
-    "register-button": "Register",
     "links": {
       "login": "Login"
     },
@@ -127,7 +125,10 @@
   "notFoundScoreData": "Not found score data",
   "notFoundSavedWordData": "Not found saved word data",
   "buttons": {
-    "add-my-words": "Add"
+    "add-my-words": "Add",
+    "sign-in": "Sign In",
+    "register": "Register",
+    "forgot-password": "Send New Password"
   },
   "saved-word-list": {
     "word": "Word",

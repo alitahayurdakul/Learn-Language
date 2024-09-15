@@ -11,7 +11,7 @@ import { FormElementsEnums } from "enums/screenEnums";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import {
-  ICommonFormElementTypes,
+  IFormElementTypes,
   IPersonalInformationTypes
 } from "types/HomepageTypes";
 import { PersonalInformationValidation } from "utils/personalInformationValidation";
@@ -45,7 +45,7 @@ export const PersonalInformationUpdate = () => {
         <Text style={styles.header}>{t("subHeaders.information")}</Text>
         <View style={styles.form}>
           {INFORMATION_UPDATE_FORM_ELEMENTS.map(
-            (element: ICommonFormElementTypes, index: number) => {
+            (element: IFormElementTypes, index: number) => {
               if (element.type === FormElementsEnums.TEXT) {
                 return (
                   <React.Fragment key={index}>
