@@ -36,7 +36,7 @@ export interface ILoginFormType {
   password: string;
 }
 
-export interface IPasswordUpdateFormType {
+export interface IForgotPasswordFormType {
   username: string;
   email: string;
 }
@@ -57,6 +57,11 @@ export interface IFormElementTypes {
   type: FormElementsEnums;
   apiUrl?: string;
 }
+
+export type IFormType =
+  | ILoginFormType
+  | IRegisterFormType
+  | IForgotPasswordFormType;
 
 export type ICommonFormType = Array<IFormElementTypes>;
 

@@ -41,5 +41,7 @@ export enum FormElementsEnums {
 export enum FormNamesEnums {
   login = "sign-in",
   register = "register",
-  forgotPassword = "forgot-password"
+  forgotPassword = "forgot-password",
+  personalInfoUpdate = "personal-information-update",
+  passwordUpdate = "password-update"
 }

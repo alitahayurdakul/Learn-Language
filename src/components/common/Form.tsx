@@ -6,14 +6,13 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { FormElementsEnums, ScreenEnums } from "enums/screenEnums";
+import { FormElementsEnums } from "enums/screenEnums";
 import { TFunction } from "i18next";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { useTranslation } from "react-i18next";
 import {
   ICommonFormType,
   IFormElementTypes,
-  IRegisterFormType
+  IFormType
 } from "types/HomepageTypes";
 
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -25,7 +24,7 @@ const commonColorDark = "#9900f5";
 interface IPropsTypes {
   navigation: any;
   elements: ICommonFormType;
-  afterSuccessLink: string;
+  afterSuccessLink?: string;
   validationSchema: any;
   t: TFunction;
   formKey: string;
@@ -40,19 +39,17 @@ const FormContainer = (props: IPropsTypes) => {
     t,
     formKey
   } = props;
-  const { t: tCommon } = useTranslation("translation");
 
   const {
     control,
     handleSubmit,
     formState: { errors }
-  } = useForm<IRegisterFormType>({
+  } = useForm<IFormType>({
     resolver: validationSchema && yupResolver(validationSchema)
   });
   const [focused, setFocused] = useState<string>("");
 
-  const onSubmit: SubmitHandler<IRegisterFormType> = (values) => {
-    console.log("denem");
+  const onSubmit: SubmitHandler<IFormType> = (values) => {
     if (values) {
       if (afterSuccessLink) {
         navigation.navigate(afterSuccessLink);
@@ -69,16 +66,18 @@ const FormContainer = (props: IPropsTypes) => {
               <View>
                 <Controller
                   control={control}
-                  name={element.key as keyof IRegisterFormType}
+                  name={element.key as keyof IFormType}
                   render={({ field: { onChange, value, name } }) => (
                     <>
-                      <Text style={styles.label}>{t(name)}</Text>
+                      <Text style={styles.label}>
+                        {t(`${formKey}.${name}`)}
+                      </Text>
                       <TextInput
                         style={[
                           styles.input,
                           focused === name && styles.focusInput
                         ]}
-                        placeholder={t(`placeholders.${name}`)}
+                        placeholder={t(`${formKey}.placeholders.${name}`)}
                         onChangeText={onChange}
                         value={value as string}
                         onFocus={() => setFocused(name)}
@@ -88,12 +87,9 @@ const FormContainer = (props: IPropsTypes) => {
                   )}
                   defaultValue=""
                 />
-                {errors[element.key as keyof IRegisterFormType] && (
+                {errors[element.key as keyof IFormType] && (
                   <Text style={styles.errorText}>
-                    {
-                      errors[element.key as keyof IRegisterFormType]
-                        ?.message as string
-                    }
+                    {errors[element.key as keyof IFormType]?.message as string}
                   </Text>
                 )}
               </View>
@@ -107,16 +103,18 @@ const FormContainer = (props: IPropsTypes) => {
               <View>
                 <Controller
                   control={control}
-                  name={element.key as keyof IRegisterFormType}
+                  name={element.key as keyof IFormType}
                   render={({ field: { onChange, value, name } }) => (
                     <>
-                      <Text style={styles.label}>{t(name)}</Text>
+                      <Text style={styles.label}>
+                        {t(`${formKey}.${name}`)}
+                      </Text>
                       <TextInput
                         style={[
                           styles.input,
                           focused === name && styles.focusInput
                         ]}
-                        placeholder={t(`placeholders.${name}`)}
+                        placeholder={t(`${formKey}.placeholders.${name}`)}
                         onChangeText={onChange}
                         value={value as string}
                         onFocus={() => setFocused(name)}
@@ -134,12 +132,9 @@ const FormContainer = (props: IPropsTypes) => {
                   }}
                   defaultValue=""
                 />
-                {errors[element.key as keyof IRegisterFormType] && (
+                {errors[element.key as keyof IFormType] && (
                   <Text style={styles.errorText}>
-                    {
-                      errors[element.key as keyof IRegisterFormType]
-                        ?.message as string
-                    }
+                    {errors[element.key as keyof IFormType]?.message as string}
                   </Text>
                 )}
               </View>
@@ -153,16 +148,18 @@ const FormContainer = (props: IPropsTypes) => {
               <View>
                 <Controller
                   control={control}
-                  name={element.key as keyof IRegisterFormType}
+                  name={element.key as keyof IFormType}
                   render={({ field: { onChange, value, name } }) => (
                     <>
-                      <Text style={styles.label}>{t(name)}</Text>
+                      <Text style={styles.label}>
+                        {t(`${formKey}.${name}`)}
+                      </Text>
                       <TextInput
                         style={[
                           styles.input,
                           focused === name && styles.focusInput
                         ]}
-                        placeholder={t(`placeholders.${name}`)}
+                        placeholder={t(`${formKey}.placeholders.${name}`)}
                         onChangeText={onChange}
                         value={value as string}
                         onFocus={() => setFocused(name)}
@@ -172,12 +169,9 @@ const FormContainer = (props: IPropsTypes) => {
                   )}
                   defaultValue=""
                 />
-                {errors[element.key as keyof IRegisterFormType] && (
+                {errors[element.key as keyof IFormType] && (
                   <Text style={styles.errorText}>
-                    {
-                      errors[element.key as keyof IRegisterFormType]
-                        ?.message as string
-                    }
+                    {errors[element.key as keyof IFormType]?.message as string}
                   </Text>
                 )}
               </View>
@@ -187,7 +181,7 @@ const FormContainer = (props: IPropsTypes) => {
       })}
 
       <TouchableOpacity style={styles.button} onPress={handleSubmit(onSubmit)}>
-        <Text style={styles.buttonText}>{tCommon(`buttons.${formKey}`)}</Text>
+        <Text style={styles.buttonText}>{t(`buttons.${formKey}`)}</Text>
       </TouchableOpacity>
     </View>
   );

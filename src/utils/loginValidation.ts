@@ -1,5 +1,5 @@
 import { TFunction } from "i18next";
-import { ILoginFormType, IPasswordUpdateFormType } from "types/HomepageTypes";
+import { IForgotPasswordFormType, ILoginFormType } from "types/HomepageTypes";
 import * as Yup from "yup";
 
 export function LoginValidation(
@@ -7,23 +7,21 @@ export function LoginValidation(
 ): Yup.ObjectSchema<ILoginFormType> {
   return Yup.object({
     username: Yup.string()
-      .typeError(t("errors.required") || "")
-      .required(t("errors.required") || ""),
-    password: Yup.string()
-      .required(t("errors.required") || "")
-      .min(6, t("errors.min", { count: 6 }) || "")
+      .typeError(t("form.errors.required") || "")
+      .required(t("form.errors.required") || ""),
+    password: Yup.string().required(t("form.errors.required") || "")
   });
 }
 
 export function ForgotPasswordValidation(
   t: TFunction<"translation", "translation">
-): Yup.ObjectSchema<IPasswordUpdateFormType> {
+): Yup.ObjectSchema<IForgotPasswordFormType> {
   return Yup.object({
     username: Yup.string()
-      .typeError(t("errors.required") || "")
-      .required(t("errors.required") || ""),
+      .typeError(t("form.errors.required") || "")
+      .required(t("form.errors.required") || ""),
     email: Yup.string()
-      .required(t("errors.required") || "")
-      .email(t("errors.email") || "")
+      .required(t("form.errors.required") || "")
+      .email(t("form.errors.email") || "")
   });
 }

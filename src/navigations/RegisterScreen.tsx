@@ -10,12 +10,12 @@ const commonColor = "#9f25e9";
 const commonColorDark = "#9900f5";
 
 const RegisterScreen = (props: any) => {
-  const { t } = useTranslation("translation", { keyPrefix: "register" });
+  const { t } = useTranslation("translation");
 
   return (
     <ScrollView>
       <View style={styles.loginContainer}>
-        <Text style={styles.header}>{t("header")}</Text>
+        <Text style={styles.header}>{t("register.header")}</Text>
         <FormContainer
           navigation={props.navigation}
           afterSuccessLink={ScreenEnums.login}
@@ -29,7 +29,7 @@ const RegisterScreen = (props: any) => {
             style={styles.registerText}
             onPress={() => props.navigation.navigate(ScreenEnums.login)}
           >
-            {t("links.login")}
+            {t("register.links.login")}
           </Text>
         </View>
       </View>

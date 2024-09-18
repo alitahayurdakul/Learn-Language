@@ -31,23 +31,13 @@
     "enToTr": "EN - TR",
     "trToEn": "TR - EN"
   },
-  "loginForm": {
-    "headers": {
-      "login": "Login",
-      "forgotPassword": "Forget Password"
-    },
+  "sign-in": {
+    "header": "Login",
     "username": "Username",
     "password": "Password",
-    "email": "E-mail",
     "placeholders": {
       "username": "Plese enter your username",
-      "password": "Please enter your password",
-      "email": "Plese enter your email"
-    },
-    "errors": {
-      "username": "Username is required",
-      "password": "Password is required",
-      "email": "E-mail is required"
+      "password": "Please enter your password"
     },
     "buttons": {
       "sendPassword": "Send New Password"
@@ -55,7 +45,21 @@
     "links": {
       "register": "Here you are",
       "registerQuestion": "Wanna try our app?",
-      "forgotPassword": "I forgot my password",
+      "forgotPassword": "I forgot my password"
+    }
+  },
+
+  "forgot-password": {
+    "header": "Forget Password",
+    "username": "Username",
+    "email": "E-mail",
+    "placeholders": {
+      "username": "Plese enter your username",
+      "email": "Plese enter your email"
+    },
+    "links": {
+      "register": "Here you are",
+      "registerQuestion": "Wanna try our app?",
       "login": "Login"
     }
   },
@@ -80,45 +84,33 @@
     },
     "links": {
       "login": "Login"
-    },
-    "errors": {
-      "email": "Please enter a valid email address",
-      "match": "Passwords doesn't match",
-      "required": "This field is required",
-      "min": "Password should be minimum {{count}} characters"
     }
   },
 
-  "personal-information-forms": {
+  "personal-information-update": {
     "fullName": "Full Name",
     "username": "Username",
     "email": "Email",
     "age": "Age",
     "country": "Country",
-    "password": "Password",
-    "rePassword": "Re-Enter Password",
     "placeholders": {
       "fullName": "Plese enter your full name",
       "username": "Plese enter your username",
-      "password": "Please enter your password",
-      "rePassword": "Please enter your re-password",
       "email": "Plese enter your email",
       "age": "Please enter your age",
       "select": "Select"
     },
-    "buttons": {
-      "update-personal-info": "Update",
-      "update-password": "Update Password"
+    "header": "Personal Information"
+  },
+
+  "password-update": {
+    "password": "Password",
+    "rePassword": "Re-Enter Password",
+    "placeholders": {
+      "password": "Please enter your password",
+      "rePassword": "Please enter your re-password"
     },
-    "subHeaders": {
-      "information": "Personal Information"
-    },
-    "errors": {
-      "email": "Please enter a valid email address",
-      "match": "Passwords doesn't match",
-      "required": "This field is required",
-      "min": "Password should be minimum {{count}} characters"
-    }
+    "header": "Password Update"
   },
 
   "footer": "Copyright © 2024 Ali Taha Yurdakul, All Rights Reserved.",
@@ -128,11 +120,25 @@
     "add-my-words": "Add",
     "sign-in": "Sign In",
     "register": "Register",
-    "forgot-password": "Send New Password"
+    "forgot-password": "Send New Password",
+    "personal-information-update": "Update",
+    "password-update": "Update Password"
   },
   "saved-word-list": {
     "word": "Word",
     "translationWord": "Translation Word",
     "translationLangs": "Langs"
+  },
+  "form": {
+    "errors": {
+      "required": "This field is required",
+      "login-password": "This field is required",
+      "password": "Password should be minimum 6 characters",
+      "number": "Please enter number",
+      "rePassword": "Passwords doesn't match",
+      "email": "Please enter a valid email address",
+      "match": "Passwords doesn't match",
+      "min": "Password should be minimum {{count}} characters"
+    }
   }
 }

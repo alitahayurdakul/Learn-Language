@@ -1,152 +1,29 @@
-import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View
-} from "react-native";
-import { INFORMATION_UPDATE_FORM_ELEMENTS } from "const/InformationUpdate";
-import { FormElementsEnums } from "enums/screenEnums";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import FormContainer from "components/common/Form";
+import { PERSONAL_INFORMATION_FORM_ELEMENTS } from "const/PersonalInformation";
+import { FormNamesEnums } from "enums/screenEnums";
 import { useTranslation } from "react-i18next";
-import {
-  IFormElementTypes,
-  IPersonalInformationTypes
-} from "types/HomepageTypes";
 import { PersonalInformationValidation } from "utils/personalInformationValidation";
 
-import { yupResolver } from "@hookform/resolvers/yup";
-
-const borderRadius = 15;
-const commonColor = "#9f25e9";
 const commonColorDark = "#9900f5";
 
-export const PersonalInformationUpdate = () => {
-  const { t } = useTranslation("translation", {
-    keyPrefix: "personal-information-forms"
-  });
-  const {
-    control,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<IPersonalInformationTypes>({
-    resolver: yupResolver(PersonalInformationValidation(t))
-  });
-  const [focused, setFocused] = useState<string>("");
-
-  const onSubmit: SubmitHandler<IPersonalInformationTypes> = (values) => {
-    console.log(values);
-  };
+export const PersonalInformationUpdate = (props: any) => {
+  const { t } = useTranslation("translation");
 
   return (
     <View>
       <View style={styles.personalInformationContainer}>
-        <Text style={styles.header}>{t("subHeaders.information")}</Text>
-        <View style={styles.form}>
-          {INFORMATION_UPDATE_FORM_ELEMENTS.map(
-            (element: IFormElementTypes, index: number) => {
-              if (element.type === FormElementsEnums.TEXT) {
-                return (
-                  <React.Fragment key={index}>
-                    <View>
-                      <Controller
-                        control={control}
-                        name={element.key as keyof IPersonalInformationTypes}
-                        render={({ field: { onChange, value, name } }) => (
-                          <>
-                            <Text style={styles.label}>{t(name)}</Text>
-                            <TextInput
-                              style={[
-                                styles.input,
-                                focused === name && styles.focusInput
-                              ]}
-                              placeholder={t(`placeholders.${name}`)}
-                              onChangeText={onChange}
-                              value={value as string}
-                              onFocus={() => setFocused(name)}
-                              onBlur={() => setFocused("")}
-                            />
-                          </>
-                        )}
-                        defaultValue=""
-                      />
-                      {errors[
-                        element.key as keyof IPersonalInformationTypes
-                      ] && (
-                        <Text style={styles.errorText}>
-                          {
-                            errors[
-                              element.key as keyof IPersonalInformationTypes
-                            ]?.message as string
-                          }
-                        </Text>
-                      )}
-                    </View>
-                  </React.Fragment>
-                );
-              }
-
-              if (element.type === FormElementsEnums.NUMBER) {
-                return (
-                  <React.Fragment key={index}>
-                    <View>
-                      <Controller
-                        control={control}
-                        name={element.key as keyof IPersonalInformationTypes}
-                        render={({ field: { onChange, value, name } }) => (
-                          <>
-                            <Text style={styles.label}>{t(name)}</Text>
-                            <TextInput
-                              style={[
-                                styles.input,
-                                focused === name && styles.focusInput
-                              ]}
-                              placeholder={t(`placeholders.${name}`)}
-                              onChangeText={onChange}
-                              value={value as string}
-                              onFocus={() => setFocused(name)}
-                              onBlur={() => setFocused("")}
-                              keyboardType="numeric"
-                            />
-                          </>
-                        )}
-                        rules={{
-                          required: t(`errors.${element.key}`),
-                          pattern: {
-                            value: /^\d+$/,
-                            message: t(`errors.number`)
-                          }
-                        }}
-                        defaultValue=""
-                      />
-                      {errors[
-                        element.key as keyof IPersonalInformationTypes
-                      ] && (
-                        <Text style={styles.errorText}>
-                          {
-                            errors[
-                              element.key as keyof IPersonalInformationTypes
-                            ]?.message as string
-                          }
-                        </Text>
-                      )}
-                    </View>
-                  </React.Fragment>
-                );
-              }
-            }
-          )}
-
-          <TouchableOpacity
-            style={styles.button}
-            onPress={handleSubmit(onSubmit)}
-          >
-            <Text style={styles.buttonText}>
-              {t("buttons.update-personal-info")}
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <Text style={styles.header}>
+          {t("personal-information-update.header")}
+        </Text>
+        <FormContainer
+          navigation={props.navigation}
+          elements={PERSONAL_INFORMATION_FORM_ELEMENTS}
+          validationSchema={PersonalInformationValidation(t)}
+          t={t}
+          formKey={FormNamesEnums.personalInfoUpdate}
+        />
       </View>
     </View>
   );
@@ -164,47 +41,5 @@ const styles = StyleSheet.create({
     color: commonColorDark,
     paddingBottom: 20,
     fontWeight: "600"
-  },
-
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 10,
-    width: "75%"
-  },
-
-  label: {
-    color: "#262d33",
-    fontWeight: "600",
-    marginBottom: 5,
-    opacity: 0.8
-  },
-
-  input: {
-    borderWidth: 1,
-    borderRadius,
-    paddingVertical: 8,
-    paddingHorizontal: 15
-  },
-
-  focusInput: {
-    borderColor: commonColor
-  },
-
-  errorText: {
-    color: "red",
-    marginTop: 5
-  },
-  button: {
-    backgroundColor: commonColorDark,
-    paddingVertical: 10,
-    display: "flex",
-    alignItems: "center",
-    borderRadius,
-    marginTop: 10
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 18
   }
 });

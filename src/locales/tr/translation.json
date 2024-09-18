@@ -1,42 +1,144 @@
 {
-  "getStarted": "Hadi Başlayalım",
+  "getStarted": "Başlayın",
+  "appName": "İngilizce Oyun",
   "start": "Başla",
   "myScores": "Skorlarım",
   "personalInformation": "Bilgiler",
+  "logOut": "Çıkış Yap",
   "aboutUs": "Hakkımızda",
   "enToTr": "İngilizce - Türkçe",
   "trToEn": "Türkçe - İngilizce",
-  "homepage": "Anasayfa",
+  "homepage": "Ana Sayfa",
   "reloadGame": "Yeniden Oyna",
   "score": "Skorunuz",
-  "health": "Can",
+  "health": "Sağlık",
   "gameOver": "Oyun Bitti",
   "scores": "Skorlarınız",
+  "savedWordList": "Kaydedilen Kelimeler",
   "language": {
     "title": "Dil",
-    "description": "Dilinizi seçip uygulamanızı istediğiniz dilde özelleştirebilirsiniz.",
+    "description": "İstediğiniz dilde uygulamanızı seçebilir ve özelleştirebilirsiniz.",
     "tr": "Türkçe",
     "en": "İngilizce"
   },
   "scoreTableHeader": {
     "order": "Sıra",
     "score": "Skor",
-    "date": "Tarih"
+    "date": "Tarih",
+    "gameType": "Oyun"
   },
   "gameType": {
-    "enToTr": "EN - TR",
-    "trToEn": "TR - EN"
+    "enToTr": "İNG - TR",
+    "trToEn": "TR - İNG"
   },
-  "login": {
-    "header": "Kullanıcı Girişi",
+  "sign-in": {
+    "header": "Giriş Yap",
     "username": "Kullanıcı Adı",
     "password": "Şifre",
-    "signIn": "Giriş Yap",
-    "palceholders": {
-      "username": "Lütfen kullanıcı adınızı giriniz",
-      "password": "Lütfen şifrenizi giriniz"
+    "placeholders": {
+      "username": "Lütfen kullanıcı adınızı girin",
+      "password": "Lütfen şifrenizi girin"
+    },
+    "buttons": {
+      "sendPassword": "Yeni Şifre Gönder"
+    },
+    "links": {
+      "register": "Buradasınız",
+      "registerQuestion": "Uygulamamızı denemek ister misiniz?",
+      "forgotPassword": "Şifremi unuttum"
     }
   },
-  "footer": "Telif hakkı © 2024 Ali Taha Yurdakul, Tüm Hakları Saklıdır.",
-  "notFoundScoreData": "Skor verisi bulunamadı"
+
+  "forgot-password": {
+    "header": "Şifreyi Unuttum",
+    "username": "Kullanıcı Adı",
+    "email": "E-posta",
+    "placeholders": {
+      "username": "Lütfen kullanıcı adınızı girin",
+      "email": "Lütfen e-posta adresinizi girin"
+    },
+    "links": {
+      "register": "Buradasınız",
+      "registerQuestion": "Uygulamamızı denemek ister misiniz?",
+      "login": "Giriş Yap"
+    }
+  },
+
+  "register": {
+    "header": "Şimdi Kaydol",
+    "fullName": "Tam Ad",
+    "username": "Kullanıcı Adı",
+    "email": "E-posta",
+    "age": "Yaş",
+    "country": "Ülke",
+    "password": "Şifre",
+    "rePassword": "Şifreyi Tekrar Girin",
+    "placeholders": {
+      "fullName": "Lütfen tam adınızı girin",
+      "username": "Lütfen kullanıcı adınızı girin",
+      "password": "Lütfen şifrenizi girin",
+      "rePassword": "Lütfen şifrenizi tekrar girin",
+      "email": "Lütfen e-posta adresinizi girin",
+      "age": "Lütfen yaşınızı girin",
+      "select": "Seçin"
+    },
+    "links": {
+      "login": "Giriş Yap"
+    }
+  },
+
+  "personal-information-update": {
+    "fullName": "Tam Ad",
+    "username": "Kullanıcı Adı",
+    "email": "E-posta",
+    "age": "Yaş",
+    "country": "Ülke",
+    "placeholders": {
+      "fullName": "Lütfen tam adınızı girin",
+      "username": "Lütfen kullanıcı adınızı girin",
+      "email": "Lütfen e-posta adresinizi girin",
+      "age": "Lütfen yaşınızı girin",
+      "select": "Seçin"
+    },
+    "header": "Kişisel Bilgiler"
+  },
+
+  "password-update": {
+    "password": "Şifre",
+    "rePassword": "Şifreyi Tekrar Girin",
+    "placeholders": {
+      "password": "Lütfen şifrenizi girin",
+      "rePassword": "Lütfen şifrenizi tekrar girin"
+    },
+    "header": "Şifre Güncelle"
+  },
+
+  "footer": "Telif Hakkı © 2024 Ali Taha Yurdakul, Tüm Hakları Saklıdır.",
+  "notFoundScoreData": "Skor verisi bulunamadı",
+  "notFoundSavedWordData": "Kaydedilen kelime verisi bulunamadı",
+  "buttons": {
+    "add-my-words": "Ekle",
+    "sign-in": "Giriş Yap",
+    "register": "Kaydol",
+    "forgot-password": "Yeni Şifre Gönder",
+    "personal-information-update": "Güncelle",
+    "password-update": "Şifreyi Güncelle"
+  },
+  "saved-word-list": {
+    "word": "Kelime",
+    "translationWord": "Çeviri Kelime",
+    "translationLangs": "Diller"
+  },
+  "form": {
+    "errors": {
+      "required": "Bu alan gereklidir",
+      "login-password": "Bu alan gereklidir",
+      "password": "Şifre en az 6 karakter olmalıdır",
+      "number": "Lütfen sayı girin",
+      "rePassword": "Şifreler eşleşmiyor",
+      "email": "Lütfen geçerli bir e-posta adresi girin",
+      "match": "Şifreler eşleşmiyor",
+      "min": "Şifre en az {{count}} karakter olmalıdır"
+    }
+  }
 }

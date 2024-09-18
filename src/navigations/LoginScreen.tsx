@@ -9,11 +9,11 @@ const commonColor = "#9f25e9";
 const commonColorDark = "#9900f5";
 
 const LoginScreen = (props: any) => {
-  const { t } = useTranslation("translation", { keyPrefix: "loginForm" });
+  const { t } = useTranslation("translation");
 
   return (
     <View style={styles.loginContainer}>
-      <Text style={styles.header}>{t("headers.login")}</Text>
+      <Text style={styles.header}>{t("sign-in.header")}</Text>
       <FormContainer
         navigation={props.navigation}
         afterSuccessLink={ScreenEnums.homepage}
@@ -27,15 +27,17 @@ const LoginScreen = (props: any) => {
           style={styles.registerText}
           onPress={() => props.navigation.navigate(ScreenEnums.forgotPassword)}
         >
-          {t("links.forgotPassword")}
+          {t("sign-in.links.forgotPassword")}
         </Text>
         <View style={styles.register}>
-          <Text style={{ opacity: 0.5 }}>{t("links.registerQuestion")}</Text>
+          <Text style={{ opacity: 0.5 }}>
+            {t("sign-in.links.registerQuestion")}
+          </Text>
           <Text
             style={styles.registerText}
             onPress={() => props.navigation.navigate(ScreenEnums.register)}
           >
-            {t("links.register")}
+            {t("sign-in.links.register")}
           </Text>
         </View>
       </View>
